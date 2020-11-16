@@ -1,0 +1,85 @@
+body {
+  overflow: hidden;
+  margin: 0;
+  font-family: 'Noto Sans KR', sans-serif;
+}
+
+.close-door {
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: #747474;
+  -webkit-transform: translateX(-100%);
+          transform: translateX(-100%);
+  -webkit-transition: .5s;
+  transition: .5s;
+  z-index: 5;
+}
+
+.close-door.active {
+  -webkit-transform: translateX(0);
+          transform: translateX(0);
+}
+
+.wrap {
+  width: 100%;
+  height: 100vh;
+  background: #1b1b1b;
+  margin: 0;
+  -webkit-transition: .8s;
+  transition: .8s;
+}
+
+.wrap .back {
+  position: fixed;
+  top: 0;
+  left: 0;
+  color: #fff;
+  margin-left: 20px;
+  cursor: pointer;
+  z-index: 4;
+  opacity: 0;
+  -webkit-transition: 1s;
+  transition: 1s;
+}
+
+.wrap .back.active {
+  opacity: 1;
+}
+
+.wrap .content {
+  width: 100%;
+  height: 3000px;
+  margin: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: #1b1b1b;
+}
+
+.wrap .content h1 {
+  color: #fff;
+  white-space: pre-line;
+  font-size: 4rem;
+  position: absolute;
+  left: 30%;
+  top: 400px;
+  opacity: 0;
+  -webkit-transition: 1s;
+  transition: 1s;
+}
+
+.wrap .content h1.active {
+  top: 300px;
+  opacity: 1;
+}
+
+.wrap .content p {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  color: #fff;
+}
+/*# sourceMappingURL=about.css.map */

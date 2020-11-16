@@ -1,0 +1,29 @@
+{
+  "items": [{
+      "thumb": "images/olympus.jpg",
+      "name": "OLYMPUS",
+      "subtitle": "올림푸스 코리아 홈페이지를 트렌드에 맞게<br>직관적이고 심플하게 리뉴얼 했습니다. "
+    },
+    {
+      "thumb": "images/genesis.jpg",
+      "name": "GENESIS",
+      "subtitle": "기존 제네시스의 정적인 홈페이지를 롤스로이드 홈페이지의<br> 동적이고 트렌디한 디자인과 기능들로 재구성 해 보았습니다."
+    },
+    {
+      "thumb": "images/olympus.jpg",
+      "name": "OLYMPUS",
+      "subtitle": "olympus olympus olympus olympus olympus <br> olympus olympus olympus olympus olympus"
+    },
+    {
+      "thumb": "images/genesis.jpg",
+      "name": "GENESIS",
+      "subtitle": "genesis genesis genesis genesis genesis <br> genesis genesis genesis genesis genesis"
+    },
+    {
+      "thumb": "images/olympus.jpg",
+      "name": "OLYMPUS",
+      "subtitle": "olympus olympus olympus olympus olympus <br> olympus olympus olympus olympus olympus"
+    }
+
+  ]
+}

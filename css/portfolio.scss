@@ -1,0 +1,286 @@
+body {
+  overflow: hidden;
+  background: #cee4f5;
+  width: 100%;
+  height: 100vh;
+  margin: 0;
+  font-family: 'Noto Sans KR', sans-serif;
+}
+
+.header {
+  width: 90%;
+  height: 50px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  a {
+    color: #000;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.2rem;
+  }
+}
+
+.wrap {
+  position: relative;
+  top: 0;
+  right: 0;
+}
+
+.n {
+  width: 60%;
+  position: absolute;
+  top: 200px;
+  right: 21%;
+  display: flex;
+  justify-content: space-between;
+  align-items: middle;
+  transition: .3s;
+
+  .texts {
+    // transition: .2s;
+    h1 {
+      font-size: 4.6rem;
+    }
+
+    h1.active {
+      opacity: 0;
+    }
+
+    p {
+      white-space: pre-line;
+      font-size: .9rem;
+    }
+
+    a {
+      color: #000;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: .8rem;
+
+    }
+  }
+
+  .img-wrap {
+    width: 46%;
+    clip-path: polygon(0 5%, 100% 5%, 100% 95%, 0 95%);
+    animation: polygons 8s alternate infinite;
+    transition: .5s;
+
+    img {
+      width: 100%;
+      height: 360px;
+      filter: grayscale(100%);
+    }
+  }
+
+  img.active {
+    opacity: 0;
+  }
+
+  @keyframes polygons {
+    25% {
+      clip-path: polygon(0 0%, 100% 0%, 100% 90%, 0 90%);
+    }
+
+    50% {
+      clip-path: polygon(0 5%, 100% 5%, 100% 95%, 0 95%);
+    }
+
+    75% {
+      clip-path: polygon(0 0%, 100% 0%, 100% 90%, 0 90%);
+    }
+  }
+}
+
+.n.active {
+  img {
+    filter: none;
+  }
+}
+
+.n1 {
+  top: 700px;
+}
+
+.n2 {
+  top: 1200px;
+}
+
+.n3 {
+  top: 1700px;
+}
+
+.n4 {
+  top: 2200px;
+}
+
+.spot-wrap {
+  transition: .5s;
+
+  h1 {
+    position: absolute;
+    top: 24.8%;
+    left: 10.4%;
+    font-size: 6.44rem;
+    z-index: -1;
+    transition: .5s;
+    opacity: 0;
+  }
+
+  h1.active {
+    font-size: 10rem;
+    top: 41%;
+    left: 5.5%;
+    z-index: 4;
+    opacity: 1;
+  }
+
+  .spot {
+    width: 700px;
+    height: 470px;
+    position: absolute;
+    top: 25%;
+    right: 9%;
+    transition: .5s;
+    opacity: 0;
+    z-index: -1;
+  }
+}
+
+.spot.active {
+  opacity: 1;
+  z-index: 3;
+  transform: translateX(-62.4%) translateY(-13.3%) scale(1.2);
+}
+
+.description {
+  width: 100%;
+  height: 100vh;
+  margin: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translateX(-100%);
+
+  .descript {
+    width: 100%;
+    height: 100vh;
+    margin: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    transition: .5s;
+
+    h2 {
+      margin-left: 20px;
+      cursor: pointer;
+    }
+  }
+
+  .d0 {
+    background: rgb(245, 76, 76);
+  }
+
+  .d1 {
+    background: rgb(76, 115, 245);
+  }
+
+  .d2 {
+    background: rgb(245, 228, 76);
+  }
+
+  .d3 {
+    background: rgb(163, 76, 245);
+  }
+
+  .d4 {
+    background: rgb(76, 245, 223);
+  }
+}
+
+.descript.active {
+  transform: translateX(1%);
+}
+
+.descript.fullPage {
+  transform: translateX(100%);
+}
+
+.about {
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+    z-index: 1;
+    transition: .5s;
+    background: #1b1b1b;
+    transform: translateX(100%);
+}
+.about.active{
+  transform: translateX(99%);
+}
+.about.fullPage{
+  transform: translateX(0);
+}
+
+.nav{
+  position: fixed;
+  right: 2%;
+  top: 50%;
+
+  li{
+    list-style:none;
+    color: gray;
+    transition: .3s;
+    span{
+      width: 6px;
+      height: 18px;
+      background: rgb(245, 76, 76);
+      position: absolute;
+      top: 4%;
+      right: -10%;
+      border-radius: 20%;
+    }
+  }
+  li:nth-of-type(2) span{
+    width: 6px;
+    height: 18px;
+    background:  rgb(76, 115, 245);
+    position: absolute;
+    top: 24%;
+    right: -10%;
+  }
+  li:nth-of-type(3) span{
+    width: 6px;
+    height: 18px;
+    background:   rgb(245, 228, 76);
+    position: absolute;
+    top: 44%;
+    right: -10%;
+  }
+  li:nth-of-type(4) span{
+    width: 6px;
+    height: 18px;
+    background:  rgb(163, 76, 245);
+    position: absolute;
+    top: 64%;
+    right: -10%;
+  }
+  li:nth-of-type(5) span{
+    width: 6px;
+    height: 18px;
+    background:  rgb(76, 245, 223);
+    position: absolute;
+    top: 84%;
+    right: -10%;
+  }
+  li:hover{
+    color: #fff;
+  }
+  
+}
