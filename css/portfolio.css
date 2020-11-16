@@ -81,6 +81,7 @@ body {
           animation: polygons 8s alternate infinite;
   -webkit-transition: .5s;
   transition: .5s;
+  cursor: pointer;
 }
 
 .n .img-wrap img {

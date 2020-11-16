@@ -22,8 +22,14 @@ body {
 .back {
   position: fixed;
   top: 0;
-  left: 0;
-  margin-left: 20px;
+  left: 20px;
+  cursor: pointer;
+  z-index: 4;
+}
+.about{
+  position: fixed;
+  top: 0;
+  right: 20px;
   cursor: pointer;
   z-index: 4;
 }
@@ -36,14 +42,15 @@ body {
   top: 0;
   left: 0;
   z-index: -1;
-h1{
-  position: absolute;
+
+  h1 {
+    position: absolute;
     top: 41%;
     left: 5.5%;
     font-size: 10rem;
     z-index: 1;
     transition: .5s;
-}
+  }
 
   .img-wrap {
     width: 700px;
@@ -57,43 +64,189 @@ h1{
     margin-top: 25.5%;
   }
 }
-.contents{
+
+.contents {
   width: 100%;
-  height: 2000px;
+  height: 3600px;
   position: absolute;
   left: 0;
-  bottom: -2000px;
+  bottom: -3600px;
   background: #fff;
-  .content{
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.6);
+
+  .content {
     width: 80%;
     margin: 0 auto;
     margin-top: 200px;
-    p:first-child{
+
+    .about-project {
+      p:first-child {
+        font-weight: bold;
+        font-size: 1rem;
+      }
+
+      h1 {
+        font-size: 4rem;
+      }
+
+      p {
+        font-size: 1.3rem;
+        font-weight: 300;
+        white-space: pre-line;
+      }
+
+      a {
+        display: block;
+        text-decoration: none;
+        color: #000;
+      }
+    }
+
+    .gif {
+      width: 100%;
+      display: block;
+      padding-top: 200px;
+
+      p{
+        font-size: 1rem;
+        font-weight: bold;
+      }
+      img {
+        width: 100%;
+      }
+    }
+  }
+
+  .info {
+    position: absolute;
+    top: 420px;
+    right: 20%;
+
+    ul {
+      font-size: 1rem;
+
+      li {
+        list-style: none;
+        font-size: 1.2rem;
+        font-weight: 300;
+      }
+
+      li:first-child {
+        padding-top: 30px;
+      }
+    }
+  }
+
+  .visual {
+    margin-top: 200px;
+
+    h1 {
+      font-size: 4rem;
+    }
+
+    p {
+      font-weight: 300;
+      font-size: 1.3rem;
+    }
+
+    p:nth-of-type(2) {
+      padding-top: 100px;
       font-weight: bold;
       font-size: 1rem;
     }
-    h1{
-      font-size: 4rem;
-    }
-    p{
-      font-size: 1.3rem;
-      font-weight: 300;
+
+    h2 {
+      font-family: 'Nanum Gothic', sans-serif;
+      font-size: 5rem;
       white-space: pre-line;
+      padding-top: 20px;
+      margin: 0;
     }
-  
-    a{
-      display: block;
-      text-decoration: none;
-      color: #000;
+
+    ul {
+      position: absolute;
+      bottom: 27%;
+      right: 10%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+
+      >p {
+        font-weight: bold;
+        font-size: 1rem;
+      }
+
+      li {
+        list-style: none;
+        width: 500px;
+        height: 60px;
+        border-radius: 10px;
+
+        >p {
+          font-size: 1rem;
+          font-weight: 300;
+          color: #fff;
+          padding-left: 20px;
+        }
+      }
+
+      li:nth-of-type(1) {
+        margin-top: 50px;
+        border: 1px solid #ddd;
+
+        >p {
+          color: #000;
+        }
+      }
+
+      li:nth-of-type(2) {
+        margin-top: 10px;
+        border: 1px solid #1b1b1b;
+        background: #1b1b1b;
+      }
+
+      li:nth-of-type(3) {
+        margin-top: 10px;
+        border: 1px solid #000;
+        background: #000;
+      }
+
+      li:nth-of-type(4) {
+        margin-top: 10px;
+        border: 1px solid #00409A;
+        background: #00409A;
+      }
+
+      li:nth-of-type(5) {
+        margin-top: 10px;
+        border: 1px solid #F9BE00;
+        background: #F9BE00;
+
+      }
     }
-    img{
-      width: 100%;
-      display: block;
-      margin-top: 100px;
+  }
+
+  .mobile {
+    padding-top: 200px;
+    display: inline-block;
+p{
+  font-weight: bold;
+  font-size: 1rem;
+}
+    .mobile-gif {
+      padding-top: 50px;
+      width: 400px;
+      img {
+        width: 100%;
+        height: 700px;
+        border-radius: 30px;
+      }
     }
   }
 }
-.footer{
+
+.footer {
   width: 100%;
   height: 1000px;
   position: fixed;
@@ -101,10 +254,12 @@ h1{
   bottom: -1000px;
   background: rgb(76, 115, 245);
   z-index: -1;
-  .img-wrap{
+
+  .img-wrap {
     width: 700px;
     margin: 0 auto;
-    img{
+
+    img {
       width: 100%;
       height: 470px;
       transform: scale(1.2);
@@ -112,11 +267,13 @@ h1{
       z-index: 1;
     }
   }
-  span{
+
+  span {
     position: absolute;
     bottom: 10%;
     left: 45%;
-    a{
+
+    a {
       color: #fff;
       text-transform: uppercase;
       text-decoration: none;
@@ -125,4 +282,3 @@ h1{
     }
   }
 }
-

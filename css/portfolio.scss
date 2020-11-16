@@ -59,7 +59,6 @@ body {
       text-decoration: none;
       font-weight: bold;
       font-size: .8rem;
-
     }
   }
 
@@ -68,6 +67,7 @@ body {
     clip-path: polygon(0 5%, 100% 5%, 100% 95%, 0 95%);
     animation: polygons 8s alternate infinite;
     transition: .5s;
+    cursor: pointer;
 
     img {
       width: 100%;
