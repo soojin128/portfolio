@@ -61,4 +61,25 @@ window.addEventListener("DOMContentLoaded", function () {
     }
   }
 
+  // about page
+  let about = document.querySelector('.about');
+  let aboutBtn = document.querySelector('.about-btn');
+
+  aboutBtn.addEventListener('mouseenter', function () {
+    about.classList.add('active');
+  });
+
+  aboutBtn.addEventListener('mouseleave', function () {
+    about.classList.remove('active');
+  });
+
+  aboutBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    about.classList.add('fullPage');
+    setTimeout(function () {
+      location.href = "about.html";
+    }, 500);
+
+  });
+
 });

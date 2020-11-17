@@ -1,8 +1,11 @@
 window.addEventListener("DOMContentLoaded", function () {
   let back = document.querySelector('.back');
-  let h1 = document.querySelector('.content h1');
+  let contents = document.querySelector('.contents');
+  let backColor = document.querySelector('.contents span');
+  let h1 = document.querySelectorAll('.contents h1');
   let closeDoor = document.querySelector('.close-door');
 
+  //back btn
   back.addEventListener('click', function () {
     closeDoor.classList.add('active');
     setTimeout(function () {
@@ -10,38 +13,46 @@ window.addEventListener("DOMContentLoaded", function () {
     }, 500);
   });
 
-  window.addEventListener('load', function () {
-    back.classList.add('active');
-    h1.classList.add('active');
-  });
+  // text animation
+  function h1Slide() {
+    h1.forEach((e,i) =>{
+      setTimeout(function() {
+        h1[i].classList.add('active');
+      },300*(i+1));
+    });
+  }
 
-  let content = document.querySelector('.content');
+  //load event
+  window.addEventListener('load', function () {
+    backColor.style.opacity = '1';
+    back.style.opacity = '1';
+    h1Slide();
+  });
+  
+  let winHeight = document.documentElement.clientHeight;
   let scroll = 0;
-  window.addEventListener('wheel', function (e) {
+  window.addEventListener('wheel', (e) => {
     if (e.deltaY < 0) {
       if (scroll > 0) {
-        scroll -= 30;
+        scroll -= 100;
       }
       scrollUp();
     } else {
-      if (scroll < content.offsetHeight-990) {
-        scroll += 30;
+      if (scroll < contents.offsetHeight-winHeight) {
+        scroll += 100;
       }
       scrollDown();
     }
-
-
   });
 
   function scrollUp() {
     if (scroll >= 0) {
-      content.style.top = - scroll + 'px';
+      contents.style.top = - scroll + 'px';
     }
   }
 
   function scrollDown() {
-    content.style.top = - scroll + 'px';
+    contents.style.top = - scroll + 'px';
   }
-
 
 });

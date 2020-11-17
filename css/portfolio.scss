@@ -40,7 +40,6 @@ body {
   transition: .3s;
 
   .texts {
-    // transition: .2s;
     h1 {
       font-size: 4.6rem;
     }
@@ -175,7 +174,7 @@ body {
     z-index: 1;
     transition: .5s;
 
-    h2 {
+    h3 {
       margin-left: 20px;
       cursor: pointer;
     }
@@ -216,71 +215,109 @@ body {
   position: absolute;
   top: 0;
   left: 0;
-    z-index: 1;
-    transition: .5s;
-    background: #1b1b1b;
-    transform: translateX(100%);
+  z-index: 1;
+  transition: .5s;
+  background: #1b1b1b;
+  transform: translateX(100%);
+
+  .img-wrap {
+    position: fixed;
+    top: 10%;
+    left: 8%;
+    width: 32%;
+
+    img {
+      width: 100%;
+    }
+  }
 }
-.about.active{
+
+.about.active {
   transform: translateX(99%);
 }
-.about.fullPage{
+
+.about.fullPage {
   transform: translateX(0);
 }
 
-.nav{
+.nav {
+  position: fixed;
+  right: 3%;
+  top: 50.4%;
+  opacity: 0;
+  transition: .3s;
+
+  li {
+    font-size: .9rem;
+    padding-bottom: 11%;
+    list-style: none;
+    color: gray;
+    transition: .3s;
+  }
+
+  li:hover {
+    color: #fff;
+  }
+}
+
+.indi {
   position: fixed;
   right: 2%;
   top: 50%;
+  width: .8%;
+  height: 13.4%;
+  list-style: none;
+  padding: 0;
 
-  li{
-    list-style:none;
-    color: gray;
-    transition: .3s;
-    span{
-      width: 6px;
-      height: 18px;
-      background: rgb(245, 76, 76);
-      position: absolute;
-      top: 4%;
-      right: -10%;
-      border-radius: 20%;
-    }
-  }
-  li:nth-of-type(2) span{
+  li {
     width: 6px;
-    height: 18px;
-    background:  rgb(76, 115, 245);
+    height: 14px;
     position: absolute;
-    top: 24%;
-    right: -10%;
+    right: 0;
+    border-radius: 20%;
+    background: gray;
   }
-  li:nth-of-type(3) span{
-    width: 6px;
-    height: 18px;
-    background:   rgb(245, 228, 76);
-    position: absolute;
-    top: 44%;
-    right: -10%;
+
+  li:nth-of-type(1) {
+    top: 5%;
   }
-  li:nth-of-type(4) span{
-    width: 6px;
-    height: 18px;
-    background:  rgb(163, 76, 245);
-    position: absolute;
-    top: 64%;
-    right: -10%;
+
+  li:nth-of-type(2) {
+    top: 27%;
   }
-  li:nth-of-type(5) span{
-    width: 6px;
-    height: 18px;
-    background:  rgb(76, 245, 223);
-    position: absolute;
-    top: 84%;
-    right: -10%;
+
+  li:nth-of-type(3) {
+    top: 49%;
   }
-  li:hover{
-    color: #fff;
+
+  li:nth-of-type(4) {
+    top: 71%;
+  }
+
+  li:nth-of-type(5) {
+    top: 92%;
   }
   
+  li:nth-of-type(1).active {
+    background: rgb(245, 76, 76);
+  }
+
+  li:nth-of-type(2).active {
+    background: rgb(76, 115, 245);
+  }
+
+  li:nth-of-type(3).active {
+    background: rgb(245, 228, 76);
+  }
+
+  li:nth-of-type(4).active {
+    background: rgb(163, 76, 245);
+  }
+
+  li:nth-of-type(5).active {
+    background: rgb(76, 245, 223);
+  }
 }
+
+
+  

@@ -10,7 +10,7 @@ body {
   position: absolute;
   top: 0;
   left: 0;
-  background: #747474;
+  background: #a6937c;
   -webkit-transform: translateX(-100%);
           transform: translateX(-100%);
   -webkit-transition: .5s;
@@ -26,7 +26,6 @@ body {
 .wrap {
   width: 100%;
   height: 100vh;
-  background: #1b1b1b;
   margin: 0;
   -webkit-transition: .8s;
   transition: .8s;
@@ -45,38 +44,78 @@ body {
   transition: 1s;
 }
 
-.wrap .back.active {
-  opacity: 1;
-}
-
-.wrap .content {
+.contents {
   width: 100%;
   height: 3000px;
-  margin: 0;
   position: absolute;
   top: 0;
   left: 0;
   background: #1b1b1b;
+  z-index: 1;
 }
 
-.wrap .content h1 {
-  color: #fff;
-  white-space: pre-line;
-  font-size: 4rem;
+.contents span {
+  width: 50%;
+  height: 100%;
+  background: #a6937c;
   position: absolute;
-  left: 30%;
-  top: 400px;
+  left: 0;
+  top: 0;
   opacity: 0;
   -webkit-transition: 1s;
   transition: 1s;
 }
 
-.wrap .content h1.active {
-  top: 300px;
+.contents .img-wrap {
+  position: absolute;
+  top: 4%;
+  left: 8%;
+  width: 32%;
+}
+
+.contents .img-wrap img {
+  width: 100%;
+}
+
+.contents h1 {
+  color: #fff;
+  font-size: 5rem;
+  position: absolute;
+  left: 50%;
+  opacity: 0;
+  -webkit-transition: 1s;
+  transition: 1s;
+}
+
+.contents h1:nth-of-type(1) {
+  top: 17%;
+}
+
+.contents h1:nth-of-type(2) {
+  top: 20%;
+}
+
+.contents h1:nth-of-type(3) {
+  top: 23%;
+}
+
+.contents h1.active {
   opacity: 1;
 }
 
-.wrap .content p {
+.contents h1:nth-of-type(1).active {
+  top: 14%;
+}
+
+.contents h1:nth-of-type(2).active {
+  top: 17%;
+}
+
+.contents h1:nth-of-type(3).active {
+  top: 20%;
+}
+
+.contents p {
   position: absolute;
   bottom: 0;
   left: 0;

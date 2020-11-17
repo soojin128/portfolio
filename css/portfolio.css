@@ -212,7 +212,7 @@ body {
   transition: .5s;
 }
 
-.description .descript h2 {
+.description .descript h3 {
   margin-left: 20px;
   cursor: pointer;
 }
@@ -261,6 +261,17 @@ body {
           transform: translateX(100%);
 }
 
+.about .img-wrap {
+  position: fixed;
+  top: 10%;
+  left: 8%;
+  width: 32%;
+}
+
+.about .img-wrap img {
+  width: 100%;
+}
+
 .about.active {
   -webkit-transform: translateX(99%);
           transform: translateX(99%);
@@ -273,64 +284,82 @@ body {
 
 .nav {
   position: fixed;
-  right: 2%;
-  top: 50%;
+  right: 3%;
+  top: 50.4%;
+  opacity: 0;
+  -webkit-transition: .3s;
+  transition: .3s;
 }
 
 .nav li {
+  font-size: .9rem;
+  padding-bottom: 11%;
   list-style: none;
   color: gray;
   -webkit-transition: .3s;
   transition: .3s;
 }
 
-.nav li span {
-  width: 6px;
-  height: 18px;
-  background: #f54c4c;
-  position: absolute;
-  top: 4%;
-  right: -10%;
-  border-radius: 20%;
-}
-
-.nav li:nth-of-type(2) span {
-  width: 6px;
-  height: 18px;
-  background: #4c73f5;
-  position: absolute;
-  top: 24%;
-  right: -10%;
-}
-
-.nav li:nth-of-type(3) span {
-  width: 6px;
-  height: 18px;
-  background: #f5e44c;
-  position: absolute;
-  top: 44%;
-  right: -10%;
-}
-
-.nav li:nth-of-type(4) span {
-  width: 6px;
-  height: 18px;
-  background: #a34cf5;
-  position: absolute;
-  top: 64%;
-  right: -10%;
-}
-
-.nav li:nth-of-type(5) span {
-  width: 6px;
-  height: 18px;
-  background: #4cf5df;
-  position: absolute;
-  top: 84%;
-  right: -10%;
-}
-
 .nav li:hover {
   color: #fff;
+}
+
+.indi {
+  position: fixed;
+  right: 2%;
+  top: 50%;
+  width: .8%;
+  height: 13.4%;
+  list-style: none;
+  padding: 0;
+}
+
+.indi li {
+  width: 6px;
+  height: 14px;
+  position: absolute;
+  right: 0;
+  border-radius: 20%;
+  background: gray;
+}
+
+.indi li:nth-of-type(1) {
+  top: 5%;
+}
+
+.indi li:nth-of-type(2) {
+  top: 27%;
+}
+
+.indi li:nth-of-type(3) {
+  top: 49%;
+}
+
+.indi li:nth-of-type(4) {
+  top: 71%;
+}
+
+.indi li:nth-of-type(5) {
+  top: 92%;
+}
+
+.indi li:nth-of-type(1).active {
+  background: #f54c4c;
+}
+
+.indi li:nth-of-type(2).active {
+  background: #4c73f5;
+}
+
+.indi li:nth-of-type(3).active {
+  background: #f5e44c;
+}
+
+.indi li:nth-of-type(4).active {
+  background: #a34cf5;
+}
+
+.indi li:nth-of-type(5).active {
+  background: #4cf5df;
 }
 /*# sourceMappingURL=portfolio.css.map */

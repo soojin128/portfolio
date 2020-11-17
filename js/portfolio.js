@@ -84,11 +84,11 @@ window.addEventListener("DOMContentLoaded", function () {
     let diff = (rounded - position);
 
     if (attractMode) {
-      position += -(position - attractTo) * 0.04;
+      position += -(position - attractTo) * 0.05;
       wrap.style.transform = 'translate(0,' + (-position * 500 + 50) + 'px)';
     } else {
-          position += Math.sign(diff) * Math.pow(Math.abs(diff), 0.7) * 0.015;
-          wrap.style.transform = 'translate(0,' + (-position * 500 + 50) + 'px)';
+      position += Math.sign(diff) * Math.pow(Math.abs(diff), 0.7) * 0.015;
+      wrap.style.transform = 'translate(0,' + (-position * 500 + 50) + 'px)';
     }
 
     // imgs scale change && nav style change
@@ -192,18 +192,40 @@ window.addEventListener("DOMContentLoaded", function () {
   // nav
   let nav = document.querySelector('.nav');
   let navs = nav.querySelectorAll('li');
+  let indi = document.querySelector('.indi');
+  let indis = indi.querySelectorAll('li');
 
   nav.addEventListener('mouseenter', () => {
     attractMode = true;
+    nav.style.opacity = '1';
+    indi.classList.add('active');
   });
 
   nav.addEventListener('mouseleave', () => {
     attractMode = false;
+    nav.style.opacity = '0';
+    indi.classList.remove('active');
   });
 
-  navs.forEach(el => {
+  navs.forEach((el, i) => {
     el.addEventListener('mouseover', (e) => {
       attractTo = Number(e.target.getAttribute('data-nav'));
+      indis[i].classList.add('active');
+    });
+    el.addEventListener('mouseleave', () => {
+      indis[i].classList.remove('active');
     });
   });
+
+  indi.addEventListener('mouseover', () => {
+    nav.style.opacity = '1';
+    indi.classList.add('active');
+  });
+
+  indi.addEventListener('mouseleave', () => {
+    nav.style.opacity = '0';
+    indi.classList.remove('active');
+  });
+
+
 });
