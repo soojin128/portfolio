@@ -10,7 +10,7 @@ body {
   top: 0;
   left: 0;
   z-index: 5;
-  background: #6787f3;
+  background: #000;
   -webkit-transform: translateX(100%);
           transform: translateX(100%);
   -webkit-transition: .5s;
@@ -74,12 +74,12 @@ body {
 
 .header h1 {
   position: absolute;
-  top: 41%;
+  top: 90%;
   left: 5.5%;
   font-size: 10rem;
   z-index: 1;
-  -webkit-transition: .5s;
-  transition: .5s;
+  -webkit-transition: 1s;
+  transition: 1s;
 }
 
 .header .img-wrap {

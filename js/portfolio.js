@@ -7,12 +7,8 @@ window.addEventListener("DOMContentLoaded", function () {
   let spotWrapEle = '';
   let wrapEle = '';
   let elems, imgs, pages, seeMore, descript, imgSpot,
-    title, titleSpot, body, texts, imgWrap, loader, header;
+    title, body, texts, imgWrap, loader, header;
   let colors = [];
-  let nav = document.querySelector('.nav');
-  let navs = nav.querySelectorAll('li');
-  let indi = document.querySelector('.indi');
-  let indis = document.querySelectorAll('.indi li');
 
   function variableFun() {
     elems = document.querySelectorAll('.n');
@@ -31,7 +27,7 @@ window.addEventListener("DOMContentLoaded", function () {
     header = document.querySelector('.header');
   }
 
-//data load
+  //data load
   data.open('get', 'data.json', true);
   data.send(null);
 
@@ -54,27 +50,26 @@ window.addEventListener("DOMContentLoaded", function () {
       wrapEle += "</div>"
       wrapEle += "</div>"
 
-      spotWrapEle = "<h1>" + el.name + "</h1>"
-      spotWrapEle += "<img class='spot' src='" + el.thumb + "' alt=''></img>"
+      spotWrapEle = "<img class='spot' src='" + el.thumb + "' alt=''></img>"
 
       wrap.innerHTML += wrapEle;
       spotWrap.innerHTML += spotWrapEle;
     });
     variableFun();
-    body.style.backgroundColor='#000';
-    loadFun(); 
+    body.style.backgroundColor = '#000';
+    loadFun();
   }
 
   //loading animation
   function loadFun() {
     setTimeout(function () {
       loader.style.display = 'none';
+      header.style.opacity = '1';
+      indi.style.opacity = '1';
     }, 2500);
 
     setTimeout(function () {
-      header.style.opacity = '1';
       raf();
-      indi.style.opacity = '1';
     }, 2000);
   }
 
@@ -82,7 +77,8 @@ window.addEventListener("DOMContentLoaded", function () {
   let attractTo = 0;
   let speed = 0;
   let position = 0;
-  let rounded = 0;
+  let rounded = 0,
+    one = true;
 
   window.addEventListener('wheel', (e) => {
     speed += e.deltaY * 0.0003;
@@ -134,14 +130,23 @@ window.addEventListener("DOMContentLoaded", function () {
         texts[i].style.opacity = '1';
       }, 1000);
 
-        elems[i].style.transition = '1s';
-      
-      
+      if (one) {
+        elems[0].style.transition = '1s';
+        one = false;
+        quitTransition();
+      }
     });
+
     imgsFor();
     seemoreFor();
     navFun();
     window.requestAnimationFrame(raf);
+  }
+
+  function quitTransition() {
+    setTimeout(function () {
+      elems[0].style.transition = '0.2s';
+    }, 1000);
   }
 
   // see more event
@@ -162,7 +167,6 @@ window.addEventListener("DOMContentLoaded", function () {
         imgSpot[i].classList.add('active');
         imgs[i].classList.add('active');
         title[i].classList.add('active');
-        titleSpot[i].classList.add('active');
         goPage(e, i);
       });
     });
@@ -176,7 +180,6 @@ window.addEventListener("DOMContentLoaded", function () {
         imgSpot[i].classList.add('active');
         imgs[i].classList.add('active');
         title[i].classList.add('active');
-        titleSpot[i].classList.add('active');
         goPage(e, i);
       });
     });
@@ -186,7 +189,7 @@ window.addEventListener("DOMContentLoaded", function () {
   function goPage(e, i) {
     setTimeout(function () {
       window.location.href = pages[i];
-    }, 500);
+    }, 250);
   }
 
   // about page
@@ -221,6 +224,10 @@ window.addEventListener("DOMContentLoaded", function () {
   }
 
   // nav
+  let nav = document.querySelector('.nav');
+  let navs = nav.querySelectorAll('li');
+  let indi = document.querySelector('.indi');
+  let indis = document.querySelectorAll('.indi li');
 
   function navFun() {
     nav.addEventListener('mouseenter', () => {

@@ -1,5 +1,8 @@
 window.addEventListener("DOMContentLoaded", function () {
 
+  window.addEventListener('load',()=>{
+title.style.top = '41%';
+  });
   let back = document.querySelectorAll('.back');
   let closeDoor = document.querySelector('.close-door');
 

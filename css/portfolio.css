@@ -93,7 +93,7 @@ body {
 
 @-webkit-keyframes loading {
   0% {
-    top: -300%;
+    top: -400%;
   }
   100% {
     top: 0;
@@ -102,7 +102,7 @@ body {
 
 @keyframes loading {
   0% {
-    top: -300%;
+    top: -400%;
   }
   100% {
     top: 0;
@@ -229,25 +229,6 @@ body {
 .spot-wrap {
   -webkit-transition: .5s;
   transition: .5s;
-}
-
-.spot-wrap h1 {
-  position: absolute;
-  top: 24.8%;
-  left: 10.4%;
-  font-size: 6.44rem;
-  z-index: -1;
-  -webkit-transition: .5s;
-  transition: .5s;
-  opacity: 0;
-}
-
-.spot-wrap h1.active {
-  font-size: 10rem;
-  top: 41%;
-  left: 5.5%;
-  z-index: 4;
-  opacity: 1;
 }
 
 .spot-wrap .spot {
@@ -378,6 +359,7 @@ body {
   color: gray;
   -webkit-transition: .3s;
   transition: .3s;
+  cursor: pointer;
 }
 
 .nav li:hover {
@@ -404,6 +386,7 @@ body {
   right: 0;
   border-radius: 20%;
   background: gray;
+  cursor: pointer;
 }
 
 .indi li:nth-of-type(1) {
