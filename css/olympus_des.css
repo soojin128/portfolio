@@ -10,7 +10,7 @@ body {
   top: 0;
   left: 0;
   z-index: 5;
-  background: #f57272;
+  background: #000;
   -webkit-transform: translateX(100%);
           transform: translateX(100%);
   -webkit-transition: .5s;

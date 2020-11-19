@@ -13,7 +13,7 @@ window.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-// mousewheel
+  // mousewheel
   let header = document.querySelector('.header');
   let title = header.querySelector('h1');
   let contents = document.querySelector('.contents');
@@ -24,7 +24,7 @@ window.addEventListener("DOMContentLoaded", function () {
   let winHeight = document.documentElement.clientHeight;
   let scroll = 0;
 
-  window.addEventListener('mousewheel',(e) => {
+  window.addEventListener('mousewheel', (e) => {
     if (e.deltaY < 0) {
       if (scroll > 0) {
         scroll -= 100;
@@ -56,15 +56,21 @@ window.addEventListener("DOMContentLoaded", function () {
       img.style.transform = 'scale(' + (1.2 - scroll * 0.0008) + ') rotate(' + scroll * 0.06 + 'deg)';
       title.style.transform = 'translateY(' + scroll * 0.6 + 'px)';
     }
-    contents.style.top = winHeight-scroll + 'px';
+    contents.style.top = winHeight - scroll + 'px';
     if (scroll > footerHeight + 50) {
       footer.style.bottom = 0;
     }
   }
 
+  //go page
+  let goOlympus = document.querySelector('.about-project a');
+  goOlympus.addEventListener('click', () => {
+    window.open('https://soojin128.github.io/project/index.html', 'olympus');
+  });
+
   //next btn
   let goNext = document.querySelector('.go-next');
-  goNext.addEventListener('click',(e) => {
+  goNext.addEventListener('click', (e) => {
     e.preventDefault();
     location.href = 'genesis_des.html';
   });

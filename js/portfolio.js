@@ -6,15 +6,37 @@ window.addEventListener("DOMContentLoaded", function () {
   let spotWrap = document.querySelector('.spot-wrap');
   let spotWrapEle = '';
   let wrapEle = '';
-  let elems, imgs, pages, seeMore, descript, imgSpot, title, titleSpot, body, texts, imgWrap;
+  let elems, imgs, pages, seeMore, descript, imgSpot,
+    title, titleSpot, body, texts, imgWrap, loader, header;
   let colors = [];
+  let nav = document.querySelector('.nav');
+  let navs = nav.querySelectorAll('li');
+  let indi = document.querySelector('.indi');
+  let indis = document.querySelectorAll('.indi li');
 
+  function variableFun() {
+    elems = document.querySelectorAll('.n');
+    imgWrap = document.querySelectorAll('.img-wrap');
+    imgs = document.querySelectorAll('.img-wrap img');
+    seeMore = document.querySelectorAll('.texts a');
+    descript = document.querySelectorAll('.descript');
+    imgSpot = document.querySelectorAll('.spot');
+    title = document.querySelectorAll('.texts h1');
+    titleSpot = document.querySelectorAll('.spot-wrap h1');
+    pages = ['olympus_des.html', 'genesis_des.html'];
+    body = document.querySelector('body');
+    colors = ['#cee4f5', '#dfcef5', ' #cef5d7', ' #f4f5ce', ' #f5d4ce'];
+    texts = document.querySelectorAll('.texts');
+    loader = document.querySelector('.loader');
+    header = document.querySelector('.header');
+  }
+
+//data load
   data.open('get', 'data.json', true);
   data.send(null);
 
   data.addEventListener('load', dataFun);
 
-  //data load event
   function dataFun() {
     response = JSON.parse(data.responseText);
     wrapEle.innerHTML = '';
@@ -37,25 +59,23 @@ window.addEventListener("DOMContentLoaded", function () {
 
       wrap.innerHTML += wrapEle;
       spotWrap.innerHTML += spotWrapEle;
-
     });
+    variableFun();
+    body.style.backgroundColor='#000';
+    loadFun(); 
+  }
 
-    elems = document.querySelectorAll('.n');
-    imgWrap = document.querySelectorAll('.img-wrap');
-    imgs = document.querySelectorAll('.img-wrap img');
-    seeMore = document.querySelectorAll('.texts a');
-    descript = document.querySelectorAll('.descript');
-    imgSpot = document.querySelectorAll('.spot');
-    title = document.querySelectorAll('.texts h1');
-    titleSpot = document.querySelectorAll('.spot-wrap h1');
-    pages = ['olympus_des.html', 'genesis_des.html'];
-    body = document.querySelector('body');
-    colors = ['#cee4f5', '#dfcef5', ' #cef5d7', ' #f4f5ce', ' #f5d4ce'];
-    texts = document.querySelectorAll('.texts');
+  //loading animation
+  function loadFun() {
+    setTimeout(function () {
+      loader.style.display = 'none';
+    }, 2500);
 
-    raf();
-    imgsFor();
-    seemoreFor();
+    setTimeout(function () {
+      header.style.opacity = '1';
+      raf();
+      indi.style.opacity = '1';
+    }, 2000);
   }
 
   let attractMode = false;
@@ -91,7 +111,7 @@ window.addEventListener("DOMContentLoaded", function () {
       wrap.style.transform = 'translate(0,' + (-position * 500 + 50) + 'px)';
     }
 
-    // imgs scale change && nav style change
+    // imgs scale, nav style, backgroundColor 
     objs.forEach((o, i) => {
       o.dist = Math.min(Math.abs(position - i), 1);
       o.dist = 1 - o.dist ** 2;
@@ -108,10 +128,21 @@ window.addEventListener("DOMContentLoaded", function () {
       if (i == Math.round(position)) {
         elems[i].classList.add('active');
       }
+
+      //loading animation
+      setTimeout(function () {
+        texts[i].style.opacity = '1';
+      }, 1000);
+
+        elems[i].style.transition = '1s';
+      
+      
     });
+    imgsFor();
+    seemoreFor();
+    navFun();
     window.requestAnimationFrame(raf);
   }
-
 
   // see more event
   function seemoreFor() {
@@ -190,42 +221,42 @@ window.addEventListener("DOMContentLoaded", function () {
   }
 
   // nav
-  let nav = document.querySelector('.nav');
-  let navs = nav.querySelectorAll('li');
-  let indi = document.querySelector('.indi');
-  let indis = indi.querySelectorAll('li');
 
-  nav.addEventListener('mouseenter', () => {
-    attractMode = true;
-    nav.style.opacity = '1';
-    indi.classList.add('active');
-  });
-
-  nav.addEventListener('mouseleave', () => {
-    attractMode = false;
-    nav.style.opacity = '0';
-    indi.classList.remove('active');
-  });
-
-  navs.forEach((el, i) => {
-    el.addEventListener('mouseover', (e) => {
-      attractTo = Number(e.target.getAttribute('data-nav'));
-      indis[i].classList.add('active');
+  function navFun() {
+    nav.addEventListener('mouseenter', () => {
+      attractMode = true;
+      nav.style.opacity = '1';
+      indi.classList.add('active');
     });
-    el.addEventListener('mouseleave', () => {
-      indis[i].classList.remove('active');
+
+    nav.addEventListener('mouseleave', () => {
+      attractMode = false;
+      nav.style.opacity = '0';
+      indi.classList.remove('active');
     });
-  });
 
-  indi.addEventListener('mouseover', () => {
-    nav.style.opacity = '1';
-    indi.classList.add('active');
-  });
+    navs.forEach((el, i) => {
+      el.addEventListener('mouseover', (e) => {
+        attractTo = Number(e.target.getAttribute('data-nav'));
+        indis[i].classList.add('active');
+      });
+      el.addEventListener('mouseleave', () => {
+        indis[i].classList.remove('active');
+      });
+      el.addEventListener('click', () => {
+        attractMode = false;
+      });
+    });
 
-  indi.addEventListener('mouseleave', () => {
-    nav.style.opacity = '0';
-    indi.classList.remove('active');
-  });
+    indi.addEventListener('mouseover', () => {
+      nav.style.opacity = '1';
+      indi.classList.add('active');
+    });
 
+    indi.addEventListener('mouseleave', () => {
+      nav.style.opacity = '0';
+      indi.classList.remove('active');
+    });
+  }
 
 });
