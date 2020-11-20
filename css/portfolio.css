@@ -331,17 +331,6 @@ body {
   top: 0;
 }
 
-.about .img-wrap {
-  position: fixed;
-  top: 10%;
-  left: 8%;
-  width: 32%;
-}
-
-.about .img-wrap img {
-  width: 100%;
-}
-
 .about.active {
   -webkit-transform: translateX(99%);
           transform: translateX(99%);
