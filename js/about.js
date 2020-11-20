@@ -1,8 +1,8 @@
 window.addEventListener("DOMContentLoaded", function () {
   let back = document.querySelector('.back');
   let contents = document.querySelector('.contents');
-  let backColor = document.querySelector('.contents span');
-  let h1 = document.querySelectorAll('.contents h1');
+  let fixEle = document.querySelector('.info');
+  let h1 = document.querySelectorAll('.content h1');
   let closeDoor = document.querySelector('.close-door');
 
   //back btn
@@ -24,7 +24,7 @@ window.addEventListener("DOMContentLoaded", function () {
 
   //load event
   window.addEventListener('load', function () {
-    backColor.style.opacity = '1';
+    fixEle.style.opacity='1';
     back.style.opacity = '1';
     h1Slide();
   });
@@ -32,9 +32,10 @@ window.addEventListener("DOMContentLoaded", function () {
   let winHeight = document.documentElement.clientHeight;
   let scroll = 0;
   window.addEventListener('wheel', (e) => {
+    
     if (e.deltaY < 0) {
       if (scroll > 0) {
-        scroll -= 100;
+          scroll -= 100;
       }
       scrollUp();
     } else {
@@ -54,5 +55,7 @@ window.addEventListener("DOMContentLoaded", function () {
   function scrollDown() {
     contents.style.top = - scroll + 'px';
   }
+
+  //fullpage scroll
 
 });

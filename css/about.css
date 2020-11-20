@@ -1,6 +1,8 @@
 body {
+  width: 100%;
   overflow: hidden;
   margin: 0;
+  padding: 0;
   font-family: 'Noto Sans KR', sans-serif;
 }
 
@@ -10,7 +12,7 @@ body {
   position: absolute;
   top: 0;
   left: 0;
-  background: #a6937c;
+  background: #000;
   -webkit-transform: translateX(-100%);
           transform: translateX(-100%);
   -webkit-transition: .5s;
@@ -27,6 +29,7 @@ body {
   width: 100%;
   height: 100vh;
   margin: 0;
+  padding: 0;
   -webkit-transition: .8s;
   transition: .8s;
 }
@@ -34,9 +37,8 @@ body {
 .wrap .back {
   position: fixed;
   top: 0;
-  left: 0;
+  left: 20px;
   color: #fff;
-  margin-left: 20px;
   cursor: pointer;
   z-index: 4;
   opacity: 0;
@@ -44,81 +46,182 @@ body {
   transition: 1s;
 }
 
-.contents {
+.fix {
+  width: 50%;
+  height: 3000px;
+  background: #a6937c;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 2;
+}
+
+.info {
+  padding-top: 10%;
+  opacity: 0;
+  -webkit-transition: 2s;
+  transition: 2s;
+}
+
+.info .img-wrap {
+  width: 200px;
+  margin: 0 auto;
+}
+
+.info .img-wrap img {
   width: 100%;
+  border-radius: 50%;
+  -webkit-box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.6);
+          box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.6);
+}
+
+.info .name {
+  padding-top: 2%;
+}
+
+.info .name p {
+  margin: 0;
+  font-size: 1.4rem;
+  text-align: center;
+  font-weight: bold;
+}
+
+.info .contact {
+  padding-top: 3%;
+  width: 280px;
+  margin: 0 auto;
+}
+
+.info .contact li {
+  list-style: none;
+}
+
+.info .contact li strong {
+  font-size: 1.2rem;
+  padding-right: 10px;
+}
+
+.info .edu_career {
+  padding-top: 10%;
+  width: 90%;
+  margin: 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+
+.info .edu_career table {
+  padding-bottom: 2%;
+}
+
+.info .edu_career table caption {
+  text-align: left;
+  font-size: 1.2rem;
+  font-weight: bold;
+  padding-bottom: 20px;
+}
+
+.info .edu_career table tr td:first-child {
+  padding-right: 10px;
+}
+
+.info .edu_career table:first-child {
+  width: 46%;
+  border-right: 2px dashed #1b1b1b;
+  padding-right: 3%;
+}
+
+.info .edu_career table:last-child {
+  width: 50%;
+}
+
+.info .experience {
+  width: 90%;
+  margin: 0 auto;
+  margin-top: 1%;
+  padding-top: 1%;
+  border-top: 2px dashed #1b1b1b;
+}
+
+.info .experience caption {
+  text-align: left;
+  font-size: 1.2rem;
+  font-weight: bold;
+  padding-bottom: 20px;
+}
+
+.info .experience tr td:first-child {
+  padding-right: 10px;
+}
+
+.contents {
+  width: 50%;
   height: 3000px;
   position: absolute;
   top: 0;
-  left: 0;
+  right: 0;
   background: #1b1b1b;
   z-index: 1;
 }
 
-.contents span {
-  width: 50%;
-  height: 100%;
-  background: #a6937c;
-  position: absolute;
-  left: 0;
-  top: 0;
-  opacity: 0;
-  -webkit-transition: 1s;
-  transition: 1s;
-}
-
-.contents .img-wrap {
-  position: absolute;
-  top: 4%;
-  left: 8%;
-  width: 32%;
-}
-
-.contents .img-wrap img {
+.content {
   width: 100%;
+  height: 100%;
 }
 
-.contents h1 {
-  color: #fff;
-  font-size: 5rem;
+.content h1 {
   position: absolute;
-  left: 50%;
+  left: 1%;
+  color: #fff;
+  font-size: 4rem;
+  margin: 0;
   opacity: 0;
   -webkit-transition: 1s;
   transition: 1s;
 }
 
-.contents h1:nth-of-type(1) {
-  top: 17%;
-}
-
-.contents h1:nth-of-type(2) {
-  top: 20%;
-}
-
-.contents h1:nth-of-type(3) {
-  top: 23%;
-}
-
-.contents h1.active {
-  opacity: 1;
-}
-
-.contents h1:nth-of-type(1).active {
+.content h1:nth-of-type(1) {
   top: 14%;
 }
 
-.contents h1:nth-of-type(2).active {
+.content h1:nth-of-type(2) {
   top: 17%;
 }
 
-.contents h1:nth-of-type(3).active {
+.content h1:nth-of-type(3) {
   top: 20%;
 }
 
-.contents p {
+.content h1.active {
+  opacity: 1;
+}
+
+.content h1:nth-of-type(1).active {
+  top: 12%;
+}
+
+.content h1:nth-of-type(2).active {
+  top: 15%;
+}
+
+.content h1:nth-of-type(3).active {
+  top: 18%;
+}
+
+.content p {
   position: absolute;
-  bottom: 0;
-  left: 0;
+  top: 0;
+  left: 50%;
+  color: #fff;
+}
+
+.skills h3 {
   color: #fff;
 }
 /*# sourceMappingURL=about.css.map */

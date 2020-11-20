@@ -9,7 +9,7 @@ title.style.top = '41%';
   let back = document.querySelectorAll('.back');
   let closeDoor = document.querySelector('.close-door');
 
-  back.forEach((e, i) => {
+  back.forEach((e) => {
     e.addEventListener('click', function () {
       closeDoor.classList.add('active');
       setTimeout(function () {

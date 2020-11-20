@@ -322,6 +322,15 @@ body {
           transform: translateX(100%);
 }
 
+.about .fix {
+  width: 50%;
+  height: 3000px;
+  background: #a6937c;
+  position: fixed;
+  left: 0;
+  top: 0;
+}
+
 .about .img-wrap {
   position: fixed;
   top: 10%;
