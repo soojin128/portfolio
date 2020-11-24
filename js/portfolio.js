@@ -92,6 +92,7 @@ window.addEventListener("DOMContentLoaded", function () {
   function raf() {
     position += speed;
     speed *= 0.8;
+
     if (Math.round(position) >= 0) {
       if (Math.round(position) < 5) {
         rounded = Math.round(position);
@@ -100,11 +101,15 @@ window.addEventListener("DOMContentLoaded", function () {
     let diff = (rounded - position);
 
     if (attractMode) {
-      position += -(position - attractTo) * 0.05;
-      wrap.style.transform = 'translate(0,' + (-position * 500 + 50) + 'px)';
+      if (document.documentElement.clientWidth > 1024) {
+        position += -(position - attractTo) * 0.05;
+        wrap.style.transform = 'translate(0,' + (-position * 500 + 50) + 'px)';
+      }
     } else {
-      position += Math.sign(diff) * Math.pow(Math.abs(diff), 0.7) * 0.015;
-      wrap.style.transform = 'translate(0,' + (-position * 500 + 50) + 'px)';
+      if (document.documentElement.clientWidth > 1024) {
+        position += Math.sign(diff) * Math.pow(Math.abs(diff), 0.7) * 0.015;
+        wrap.style.transform = 'translate(0,' + (-position * 500 + 50) + 'px)';
+      }
     }
 
     // imgs scale, nav style, backgroundColor 
@@ -116,8 +121,13 @@ window.addEventListener("DOMContentLoaded", function () {
         elems[i].style.transform = 'scale(1.2)';
         imgWrap[i].style.transform = ' translateX(-60%)';
       } else {
+
         imgWrap[i].style.transform = ' translateX(0)';
-        elems[i].style.transform = 'scale(' + (1 + 0.4 * o.dist) + ')';
+        if (document.documentElement.clientWidth > 1024) {
+          elems[i].style.transform = 'scale(' + (1 + 0.4 * o.dist) + ')';
+        } else {
+          elems[i].style.transform = 'scale(1)';
+        }
         backgroundFun();
       }
       elems[i].classList.remove('active');
@@ -179,7 +189,6 @@ window.addEventListener("DOMContentLoaded", function () {
         descript[i].classList.add('fullPage');
         imgSpot[i].classList.add('active');
         imgs[i].classList.add('active');
-        title[i].classList.add('active');
         goPage(e, i);
       });
     });
@@ -216,9 +225,16 @@ window.addEventListener("DOMContentLoaded", function () {
   // body background color
   function backgroundFun() {
     colors.forEach((e, i) => {
-      if (i == rounded) {
-        body.style.backgroundColor = colors[i];
-        body.style.transition = '.5s';
+      if (document.documentElement.clientWidth > 1024) {
+        if (i == rounded) {
+          body.style.backgroundColor = colors[i];
+          body.style.transition = '.5s';
+        }
+      } else {
+        if (i == Math.abs(touchPosition)) {
+          body.style.backgroundColor = colors[i];
+          body.style.transition = '.5s';
+        }
       }
     });
   }
@@ -253,6 +269,8 @@ window.addEventListener("DOMContentLoaded", function () {
       el.addEventListener('click', () => {
         attractMode = false;
       });
+
+
     });
 
     indi.addEventListener('mouseover', () => {
@@ -265,5 +283,53 @@ window.addEventListener("DOMContentLoaded", function () {
       indi.classList.remove('active');
     });
   }
+
+  // responsive swipe elements
+  let clientX, deltaX = 0,
+    sss = 0;
+  let touchPosition = 0;
+
+  wrap.addEventListener('touchstart', (e) => {
+    clientX = e.changedTouches[0].clientX;
+  });
+
+  wrap.addEventListener('touchmove', (e) => {
+    deltaX = e.changedTouches[0].clientX - clientX;
+    deltaX < 0 ? sss += 25 : sss -= 25;
+
+    wrap.style.transform = 'translateX(-' + sss + 'px)';
+
+  });
+
+  wrap.addEventListener('touchend', () => {
+
+    if (deltaX > 0) {
+      touchPosition += 1;
+    } else {
+      touchPosition -= 1;
+    }
+    if (touchPosition <= 0) {
+      if (touchPosition > -5) {
+        wrap.style.transform = 'translateX(' + (550 * touchPosition) + 'px)';
+      }
+    }
+    //indi
+    indis.forEach((e, i) => {
+      if (i == Math.abs(touchPosition)) {
+        indis[i].classList.add('active');
+        setTimeout(function () {
+          title[i].style.opacity = 1;
+          title[i].style.transition = '.5s';
+        }, 500);
+
+      } else {
+        e.classList.remove('active');
+        title[i].style.opacity = 0;
+        title[i].style.transition = 0;
+      }
+    });
+  });
+
+
 
 });

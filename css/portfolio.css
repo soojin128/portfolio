@@ -9,13 +9,15 @@ body {
 
 .loader {
   position: absolute;
-  top: 50%;
+  top: 100%;
   left: 10%;
   z-index: 10;
   -webkit-transition: .5s;
   transition: .5s;
   -webkit-animation: loader 2.5s forwards;
           animation: loader 2.5s forwards;
+  -webkit-animation-delay: 250ms;
+          animation-delay: 250ms;
 }
 
 .loader h1 {
@@ -24,14 +26,10 @@ body {
   color: #fff;
 }
 
-.loader.active {
-  opacity: 0;
-}
-
 @-webkit-keyframes loader {
   0% {
     opacity: 0;
-    top: 50%;
+    top: 100%;
   }
   80% {
     opacity: 1;
@@ -46,7 +44,7 @@ body {
 @keyframes loader {
   0% {
     opacity: 0;
-    top: 50%;
+    top: 100%;
   }
   80% {
     opacity: 1;
@@ -85,10 +83,12 @@ body {
 
 .wrap {
   position: relative;
-  top: 0;
+  top: -400%;
   right: 0;
   -webkit-animation: loading 2s forwards;
           animation: loading 2s forwards;
+  -webkit-animation-delay: 250ms;
+          animation-delay: 250ms;
 }
 
 @-webkit-keyframes loading {
@@ -137,10 +137,6 @@ body {
   font-size: 4.6rem;
 }
 
-.n .texts h1.active {
-  opacity: 0;
-}
-
 .n .texts p {
   white-space: pre-line;
   font-size: .9rem;
@@ -157,8 +153,10 @@ body {
   width: 46%;
   -webkit-clip-path: polygon(0 5%, 100% 5%, 100% 95%, 0 95%);
           clip-path: polygon(0 5%, 100% 5%, 100% 95%, 0 95%);
-  -webkit-animation: polygons 8s alternate infinite;
-          animation: polygons 8s alternate infinite;
+  -webkit-animation: polygons 8s infinite;
+          animation: polygons 8s infinite;
+  -webkit-animation-delay: 250ms;
+          animation-delay: 250ms;
   -webkit-transition: .5s;
   transition: .5s;
   cursor: pointer;
@@ -343,16 +341,14 @@ body {
 
 .nav {
   position: fixed;
-  right: 3%;
-  top: 50.4%;
+  right: 3.4%;
+  top: 47.7%;
   opacity: 0;
   -webkit-transition: .3s;
   transition: .3s;
 }
 
 .nav li {
-  font-size: .9rem;
-  padding-bottom: 11%;
   list-style: none;
   color: gray;
   -webkit-transition: .3s;
@@ -367,7 +363,7 @@ body {
 .indi {
   position: fixed;
   right: 2%;
-  top: 50%;
+  top: 48%;
   width: .8%;
   height: 13.4%;
   list-style: none;
@@ -380,31 +376,10 @@ body {
 .indi li {
   width: 6px;
   height: 14px;
-  position: absolute;
-  right: 0;
+  margin-bottom: 70%;
   border-radius: 20%;
   background: gray;
   cursor: pointer;
-}
-
-.indi li:nth-of-type(1) {
-  top: 5%;
-}
-
-.indi li:nth-of-type(2) {
-  top: 27%;
-}
-
-.indi li:nth-of-type(3) {
-  top: 49%;
-}
-
-.indi li:nth-of-type(4) {
-  top: 71%;
-}
-
-.indi li:nth-of-type(5) {
-  top: 92%;
 }
 
 .indi li:nth-of-type(1).active {
@@ -425,5 +400,374 @@ body {
 
 .indi li:nth-of-type(5).active {
   background: #4cf5df;
+}
+
+@media (max-width: 1024px) {
+  body {
+    position: fixed;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    width: 100%;
+    height: 100vh;
+    margin: 0;
+    font-family: 'Noto Sans KR', sans-serif;
+  }
+  .loader {
+    position: absolute;
+    top: 50%;
+    left: 10%;
+    z-index: 10;
+    -webkit-transition: .5s;
+    transition: .5s;
+    -webkit-animation: loader 2.5s forwards;
+            animation: loader 2.5s forwards;
+    display: none;
+  }
+  .loader h1 {
+    font-size: 3rem;
+    white-space: pre-line;
+    color: #fff;
+  }
+  @-webkit-keyframes loader {
+    0% {
+      opacity: 0;
+      top: 50%;
+    }
+    80% {
+      opacity: 1;
+      top: 30%;
+    }
+    100% {
+      opacity: 0;
+      top: 30%;
+    }
+  }
+  @keyframes loader {
+    0% {
+      opacity: 0;
+      top: 50%;
+    }
+    80% {
+      opacity: 1;
+      top: 30%;
+    }
+    100% {
+      opacity: 0;
+      top: 30%;
+    }
+  }
+  .header {
+    width: 90%;
+    height: 50px;
+    margin: 0 auto;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-transition: 1s;
+    transition: 1s;
+    opacity: 0;
+  }
+  .header a {
+    color: #000;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1rem;
+  }
+  .wrap {
+    width: 3000px;
+    height: 100vh;
+    position: absolute;
+    top: 100px;
+    left: 275px;
+    -webkit-animation: loading 2s forwards;
+            animation: loading 2s forwards;
+    -webkit-transition: .5s linear;
+    transition: .5s linear;
+  }
+  @-webkit-keyframes loading {
+    0% {
+      top: 100px;
+      opacity: 0;
+    }
+    100% {
+      top: 100px;
+      opacity: 1;
+    }
+  }
+  @keyframes loading {
+    0% {
+      top: 100px;
+      opacity: 0;
+    }
+    100% {
+      top: 100px;
+      opacity: 1;
+    }
+  }
+  .n {
+    width: 500px;
+    height: 100vh;
+    position: static;
+    display: inline-block;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: middle;
+        -ms-flex-align: middle;
+            align-items: middle;
+    margin-right: 50px;
+    -webkit-transition: .2s;
+    transition: .2s;
+  }
+  .n .texts {
+    -webkit-transition: 1s;
+    transition: 1s;
+    position: absolute;
+    top: 50%;
+    left: 10%;
+  }
+  .n .texts h1 {
+    font-size: 5rem;
+  }
+  .n .texts p {
+    white-space: pre-line;
+    font-size: .9rem;
+    display: none;
+  }
+  .n .texts a {
+    color: #000;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: .8rem;
+    display: none;
+  }
+  .n .img-wrap {
+    width: 100%;
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+            clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+    -webkit-animation: polygons 8s infinite;
+            animation: polygons 8s infinite;
+    -webkit-transition: .5s;
+    transition: .5s;
+    cursor: pointer;
+  }
+  .n .img-wrap img {
+    width: 100%;
+    height: 320px;
+    -webkit-filter: none;
+            filter: none;
+  }
+  .n img.active {
+    opacity: 0;
+  }
+  @-webkit-keyframes polygons {
+    25% {
+      -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+              clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+    }
+    50% {
+      -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+              clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+    }
+    75% {
+      -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+              clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+    }
+  }
+  @keyframes polygons {
+    25% {
+      -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+              clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+    }
+    50% {
+      -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+              clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+    }
+    75% {
+      -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+              clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+    }
+  }
+  .n:last-child {
+    margin-right: 0;
+  }
+  .n.active img {
+    -webkit-filter: none;
+            filter: none;
+  }
+  .n1 {
+    top: 100px;
+  }
+  .n2 {
+    top: 100px;
+  }
+  .n3 {
+    top: 100px;
+  }
+  .n4 {
+    top: 100px;
+  }
+  .spot-wrap {
+    -webkit-transition: .5s;
+    transition: .5s;
+  }
+  .spot-wrap .spot {
+    width: 700px;
+    height: 470px;
+    position: absolute;
+    top: 25%;
+    right: 9%;
+    -webkit-transition: .5s;
+    transition: .5s;
+    opacity: 0;
+    z-index: -1;
+  }
+  .spot.active {
+    opacity: 1;
+    z-index: 3;
+    -webkit-transform: translateX(-62.4%) translateY(-13.3%) scale(1.2);
+            transform: translateX(-62.4%) translateY(-13.3%) scale(1.2);
+  }
+  .description {
+    width: 100%;
+    height: 100vh;
+    margin: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    -webkit-transform: translateX(-100%);
+            transform: translateX(-100%);
+  }
+  .description .descript {
+    width: 100%;
+    height: 100vh;
+    margin: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    -webkit-transition: .5s;
+    transition: .5s;
+  }
+  .description .descript h3 {
+    margin-left: 20px;
+    cursor: pointer;
+  }
+  .description .d0 {
+    background: #f54c4c;
+  }
+  .description .d1 {
+    background: #4c73f5;
+  }
+  .description .d2 {
+    background: #f5e44c;
+  }
+  .description .d3 {
+    background: #a34cf5;
+  }
+  .description .d4 {
+    background: #4cf5df;
+  }
+  .descript.active {
+    -webkit-transform: translateX(1%);
+            transform: translateX(1%);
+  }
+  .descript.fullPage {
+    -webkit-transform: translateX(100%);
+            transform: translateX(100%);
+  }
+  .about {
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    -webkit-transition: .5s;
+    transition: .5s;
+    background: #1b1b1b;
+    -webkit-transform: translateX(3000px);
+            transform: translateX(3000px);
+    display: none;
+  }
+  .about .fix {
+    width: 50%;
+    height: 3000px;
+    background: #a6937c;
+    position: fixed;
+    left: 0;
+    top: 0;
+  }
+  .about.active {
+    -webkit-transform: translateX(99%);
+            transform: translateX(99%);
+  }
+  .about.fullPage {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+  .nav {
+    position: fixed;
+    right: 3.4%;
+    top: 47.7%;
+    opacity: 0;
+    -webkit-transition: .3s;
+    transition: .3s;
+    display: none;
+  }
+  .nav li {
+    list-style: none;
+    color: gray;
+    -webkit-transition: .3s;
+    transition: .3s;
+    cursor: pointer;
+  }
+  .nav li:hover {
+    color: #fff;
+  }
+  .indi {
+    position: fixed;
+    right: 48%;
+    top: 0;
+    width: .8%;
+    height: 13.4%;
+    list-style: none;
+    padding: 0;
+    opacity: 0;
+    -webkit-transform: rotate(-90deg);
+            transform: rotate(-90deg);
+    -webkit-transition: .5s;
+    transition: .5s;
+  }
+  .indi li {
+    width: 6px;
+    height: 14px;
+    margin-bottom: 100%;
+    border-radius: 20%;
+    background: #fff;
+    cursor: pointer;
+  }
+  .indi li:nth-of-type(1).active {
+    background: #f54c4c;
+  }
+  .indi li:nth-of-type(2).active {
+    background: #4c73f5;
+  }
+  .indi li:nth-of-type(3).active {
+    background: #f5e44c;
+  }
+  .indi li:nth-of-type(4).active {
+    background: #a34cf5;
+  }
+  .indi li:nth-of-type(5).active {
+    background: #4cf5df;
+  }
 }
 /*# sourceMappingURL=portfolio.css.map */
