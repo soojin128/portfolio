@@ -118,4 +118,35 @@ window.addEventListener("DOMContentLoaded", function () {
     contents.style.top = 0;
     contents.style.transition = '.5s';
   });
+
+  // touch event
+  let clientY, deltaY = 0,
+    move = 0;
+
+  window.addEventListener('touchstart', (e) => {
+    clientY = e.changedTouches[0].clientY;
+  });
+
+  window.addEventListener('touchmove', (e) => {
+    deltaY = e.changedTouches[0].clientY;
+    if (move <= contents.offsetHeight + footerHeight) {
+        if (clientY - deltaY > 0) {
+          move += 30;
+        } else {
+          move -= 30;
+        }
+    }
+    if(move>footerHeight){
+      footer.style.bottom = 0;
+    }else{
+      footer.style.bottom = '-100%';
+    }
+    deltaY = clientY - deltaY;
+    contents.style.transform = 'translateY(-' + move + 'px)';
+  });
+
+  window.addEventListener('touchend', () => {
+    contents.style.transform = 'translateY(-' + move + 'px)';
+    // contents.style.transform = 'translateY(' + deltaY + 'px)';
+  });
 });
