@@ -2,12 +2,9 @@ window.addEventListener("DOMContentLoaded", function () {
 
 
   window.addEventListener('load', () => {
-    if (document.documentElement.clientWidth >= 1440) {
-      title.style.top = '41%';
-    } else {
-      downBtn.style.opacity = 1;
-      title.style.opacity = 1;
-    }
+    title.style.top = '45%';
+    downBtn.style.opacity = 1;
+    title.style.opacity = 1;
   });
 
   // back btn
@@ -23,6 +20,13 @@ window.addEventListener("DOMContentLoaded", function () {
     });
   });
 
+  // downBtn
+  let downBtn = document.querySelector('.header span');
+  downBtn.addEventListener('click', () => {
+    contents.style.top = 0;
+    contents.style.transition = '.5s';
+  });
+
   // mousewheel
   let header = document.querySelector('.header');
   let title = header.querySelector('h1');
@@ -34,8 +38,8 @@ window.addEventListener("DOMContentLoaded", function () {
   let winHeight = document.documentElement.clientHeight;
   let scroll = 0;
 
+
   window.addEventListener('mousewheel', (e) => {
-    // if (document.documentElement.clientWidth >= 1440) {
     if (e.deltaY < 0) {
       if (scroll > 0) {
         scroll -= 100;
@@ -47,34 +51,58 @@ window.addEventListener("DOMContentLoaded", function () {
       }
       scrollDown();
     }
-    // }
+    footerFun();
   });
 
   function scrollUp() {
     if (scroll >= 0) {
       if (scroll <= 300) {
-        if (document.documentElement.clientWidth > 1024) {
+        if (document.documentElement.clientWidth > 1440) {
           img.style.transform = 'scale(' + (1.2 - scroll * 0.0008) + ') rotate(' + scroll * 0.06 + 'deg)';
+        } else {
+          img.style.transform = 'rotate(' + scroll * 0.06 + 'deg)';
         }
         title.style.transform = 'translateY(' + scroll * 0.1 + 'px)';
       }
     }
     contents.style.top = winHeight - scroll + 'px';
-    if (scroll < footerHeight + 50) {
+    if (scroll < footerHeight) {
       footer.style.bottom = '-' + footerHeight + 'px';
     }
   }
 
   function scrollDown() {
     if (scroll <= 300) {
-      if (document.documentElement.clientWidth > 1024) {
+      if (document.documentElement.clientWidth > 1440) {
         img.style.transform = 'scale(' + (1.2 - scroll * 0.0008) + ') rotate(' + scroll * 0.06 + 'deg)';
+      } else {
+        img.style.transform = 'rotate(' + scroll * 0.06 + 'deg)';
       }
       title.style.transform = 'translateY(' + scroll * 0.6 + 'px)';
     }
+
     contents.style.top = winHeight - scroll + 'px';
-    if (scroll > footerHeight + 50) {
+    
+    if (scroll > footerHeight + 60) {
       footer.style.bottom = 0;
+    }
+  }
+
+  //footer event
+  let footerTxt = document.querySelector('.footer h1');
+
+  function footerFun() {
+    if (scroll > contentsHeight - (footerHeight / 4)) {
+      if(document.documentElement.clientWidth==1440){
+        footerTxt.style.top = '40%';
+      }else{
+        footerTxt.style.top = '45%';
+      }
+      
+      goNext.style.opacity = 1;
+    } else {
+      footerTxt.style.top = '100%';
+      goNext.style.opacity = 0;
     }
   }
 
@@ -112,13 +140,6 @@ window.addEventListener("DOMContentLoaded", function () {
 
   });
 
-  // downBtn
-  let downBtn = document.querySelector('.header span');
-  downBtn.addEventListener('click', () => {
-    contents.style.top = 0;
-    contents.style.transition = '.5s';
-  });
-
   // touch event
   let clientY, deltaY = 0,
     move = 0;
@@ -129,24 +150,36 @@ window.addEventListener("DOMContentLoaded", function () {
 
   window.addEventListener('touchmove', (e) => {
     deltaY = e.changedTouches[0].clientY;
-    if (move <= contents.offsetHeight + footerHeight) {
-        if (clientY - deltaY > 0) {
-          move += 30;
-        } else {
-          move -= 30;
-        }
+
+    if (clientY - deltaY > 0) {
+      if (move <= contents.offsetHeight + footerHeight) {
+        move += 20;
+      }
+    } else {
+      if (move >= 0) {
+        move -= 20;
+      }
     }
-    if(move>footerHeight){
+    if (move > contentsHeight + (footerHeight / 2)) {
+      goNext.style.opacity = 1;
+      if(document.documentElement.clientWidth>1024){
+        footerTxt.style.top = '40%';
+      }else{
+        footerTxt.style.top = '45%';
+      }
+      
+    } else {
+      goNext.style.opacity = 0;
+      footerTxt.style.top = '100%';
+    }
+
+    if (move > footerHeight + 60) {
       footer.style.bottom = 0;
-    }else{
+    } else {
       footer.style.bottom = '-100%';
     }
     deltaY = clientY - deltaY;
-    contents.style.transform = 'translateY(-' + move + 'px)';
+    contents.style.top = winHeight - move + 'px';
   });
 
-  window.addEventListener('touchend', () => {
-    contents.style.transform = 'translateY(-' + move + 'px)';
-    // contents.style.transform = 'translateY(' + deltaY + 'px)';
-  });
 });

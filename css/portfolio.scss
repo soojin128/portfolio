@@ -100,10 +100,23 @@ body {
     }
 
     a {
-      color: #000;
       text-decoration: none;
-      font-weight: bold;
-      font-size: .8rem;
+      width: 26%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      p {
+        color: #000;
+        font-weight: bold;
+        font-size: .8rem;
+      }
+
+      img {
+        width: 20%;
+        height: 20%;
+        transition: .5s;
+      }
     }
   }
 
@@ -167,8 +180,8 @@ body {
   transition: .5s;
 
   .spot {
-    width: 700px;
-    height: 470px;
+    width: 40%;
+    height: 50vh;
     position: absolute;
     top: 25%;
     right: 9%;
@@ -181,7 +194,7 @@ body {
 .spot.active {
   opacity: 1;
   z-index: 3;
-  transform: translateX(-62.4%) translateY(-13.3%) scale(1.2);
+  transform: translateX(-52%) translateY(-18%) scale(1.2);
 }
 
 .description {
@@ -247,11 +260,11 @@ body {
   z-index: 1;
   transition: .5s;
   background: #1b1b1b;
-  transform: translateX(200%);
+  transform: translateX(100%);
 
   .fix {
     width: 50%;
-    height: 3000px;
+    height: 100vh;
     background: #a6937c;
     position: fixed;
     left: 0;
@@ -330,10 +343,10 @@ body {
 //-------------- 1440 ----------------
 @media(max-width: 1440px) {
   body {
-    overflow: hidden;
     background: #000;
     width: 100%;
     height: 100vh;
+    overflow: hidden;
     margin: 0;
     font-family: 'Noto Sans KR', sans-serif;
   }
@@ -348,7 +361,7 @@ body {
     animation-delay: 250ms;
 
     h1 {
-      font-size: 5rem;
+      font-size: 4rem;
       white-space: pre-line;
       color: #fff;
     }
@@ -410,7 +423,7 @@ body {
   .n {
     width: 60%;
     position: absolute;
-    top: 100px;
+    top: 150px;
     right: 21%;
     display: flex;
     justify-content: space-between;
@@ -479,29 +492,29 @@ body {
   }
 
   .n1 {
-    top: 500px;
+    top: 550px;
   }
 
   .n2 {
-    top: 900px;
+    top: 950px;
   }
 
   .n3 {
-    top: 1300px;
+    top: 1350px;
   }
 
   .n4 {
-    top: 1700px;
+    top: 1750px;
   }
 
   .spot-wrap {
     transition: .5s;
 
     .spot {
-      width: 700px;
-      height: 470px;
+      width: 50%;
+      height: 50vh;
       position: absolute;
-      top: 25%;
+      top: 18%;
       right: 9%;
       transition: .5s;
       opacity: 0;
@@ -512,7 +525,7 @@ body {
   .spot.active {
     opacity: 1;
     z-index: 3;
-    transform: translateX(-62.4%) translateY(-13.3%) scale(1.2);
+    transform: translateX(-32%) translateY(-6%) scale(1);
   }
 
   .description {
@@ -533,10 +546,12 @@ body {
       left: 0;
       z-index: 1;
       transition: .5s;
-
       h3 {
-        margin-left: 20px;
-        cursor: pointer;
+        position: fixed;
+        top: 0;
+        left: 20px;
+        opacity: 0;
+        z-index: 4;
       }
     }
 
@@ -578,8 +593,8 @@ body {
     z-index: 1;
     transition: .5s;
     background: #1b1b1b;
-    transform: translateX(200%);
-
+    transform: translateX(100%);
+  
     .fix {
       width: 50%;
       height: 3000px;
@@ -589,11 +604,11 @@ body {
       top: 0;
     }
   }
-
+  
   .about.active {
     transform: translateX(99%);
   }
-
+  
   .about.fullPage {
     transform: translateX(0);
   }
@@ -680,7 +695,7 @@ body {
     z-index: 10;
     transition: .5s;
     animation: loader 2.5s forwards;
-    display: none;
+    // display: none;
 
     h1 {
       font-size: 3rem;
@@ -693,16 +708,19 @@ body {
     0% {
       opacity: 0;
       top: 50%;
+      left: 10%;
     }
 
     80% {
       opacity: 1;
-      top: 30%;
+      top: 50%;
+      left: 30%;
     }
 
     100% {
       opacity: 0;
-      top: 30%;
+      top: 50%;
+      left: 100%;
     }
   }
 
@@ -737,11 +755,13 @@ body {
   @keyframes loading {
     0% {
       top: 100px;
+      left: 100%;
       opacity: 0;
     }
 
     100% {
       top: 100px;
+      left: 10%;
       opacity: 1;
     }
   }
@@ -753,7 +773,7 @@ body {
     position: static;
     display: inline-block;
     justify-content: space-between;
-    align-items: middle;
+    align-items: center;
     margin-right: 50px;
     transition: .2s;
 
@@ -762,11 +782,11 @@ body {
       position: absolute;
       top: 40%;
       left: 10%;
-      opacity:0;
-      
+      opacity: 0;
+
       h1 {
         font-size: 8rem;
-        margin:30% 0 0 0;
+        margin: 30% 0 0 0;
       }
 
       p {
@@ -775,10 +795,23 @@ body {
       }
 
       a {
-        color: #000;
         text-decoration: none;
-        font-weight: bold;
-        font-size: .9rem;
+        width: 14%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        p {
+          color: #000;
+          font-weight: bold;
+          font-size: .8rem;
+        }
+
+        img {
+          width: 16%;
+          height: 10%;
+          transition: .5s;
+        }
       }
     }
 
@@ -816,7 +849,7 @@ body {
   }
 
   .texts:first-child {
-      opacity: 1;
+    opacity: 1;
   }
 
   .n:last-child {
@@ -930,7 +963,6 @@ body {
     transition: .5s;
     background: #1b1b1b;
     transform: translateX(100%);
-    display: none;
 
     .fix {
       width: 50%;

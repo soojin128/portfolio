@@ -1,8 +1,12 @@
 window.addEventListener("DOMContentLoaded", function () {
 
-  window.addEventListener('load',()=>{
-title.style.top = '41%';
+  window.addEventListener('load', () => {
+    title.style.top = '45%';
+    downBtn.style.opacity = 1;
+    title.style.opacity = 1;
   });
+
+  // back btn
   let back = document.querySelectorAll('.back');
   let closeDoor = document.querySelector('.close-door');
 
@@ -15,6 +19,14 @@ title.style.top = '41%';
     });
   });
 
+  // downBtn
+  let downBtn = document.querySelector('.header span');
+  downBtn.addEventListener('click', () => {
+    contents.style.top = 0;
+    contents.style.transition = '.5s';
+  });
+
+  // mousewheel
   let header = document.querySelector('.header');
   let title = header.querySelector('h1');
   let contents = document.querySelector('.contents');
@@ -37,12 +49,17 @@ title.style.top = '41%';
       }
       scrollDown();
     }
+    footerFun();
   });
 
   function scrollUp() {
     if (scroll >= 0) {
       if (scroll <= 300) {
-        img.style.transform = 'scale(' + (1.2 - scroll * 0.0008) + ') rotate(' + scroll * 0.06 + 'deg)';
+        if (document.documentElement.clientWidth > 1440) {
+          img.style.transform = 'scale(' + (1.2 - scroll * 0.0008) + ') rotate(' + scroll * 0.06 + 'deg)';
+        } else {
+          img.style.transform = 'rotate(' + scroll * 0.06 + 'deg)';
+        }
         title.style.transform = 'translateY(' + scroll * 0.1 + 'px)';
       }
     }
@@ -54,7 +71,11 @@ title.style.top = '41%';
 
   function scrollDown() {
     if (scroll <= 300) {
-      img.style.transform = 'scale(' + (1.2 - scroll * 0.0008) + ') rotate(' + scroll * 0.06 + 'deg)';
+      if (document.documentElement.clientWidth > 1440) {
+        img.style.transform = 'scale(' + (1.2 - scroll * 0.0008) + ') rotate(' + scroll * 0.06 + 'deg)';
+      } else {
+        img.style.transform = 'rotate(' + scroll * 0.06 + 'deg)';
+      }
       title.style.transform = 'translateY(' + scroll * 0.6 + 'px)';
     }
     contents.style.top = winHeight - scroll + 'px';
@@ -63,6 +84,37 @@ title.style.top = '41%';
       footer.style.bottom = 0;
     }
   }
+
+  //footer event
+  let footerTxt = document.querySelector('.footer h1');
+
+  function footerFun() {
+    if (scroll > contentsHeight - (footerHeight / 4)) {
+      if (document.documentElement.clientWidth == 1440) {
+        footerTxt.style.top = '40%';
+      } else {
+        footerTxt.style.top = '45%';
+      }
+
+      goNext.style.opacity = 1;
+    } else {
+      footerTxt.style.top = '100%';
+      goNext.style.opacity = 0;
+    }
+  }
+
+  //go page
+  let goGenesis = document.querySelector('.about-project a');
+  goGenesis.addEventListener('click', () => {
+    window.open('https://soojin128.github.io/GENESIS/', 'olympus');
+  });
+
+  //next btn
+  let goNext = document.querySelector('.go-next');
+  // goNext.addEventListener('click', (e) => {
+  //   e.preventDefault();
+  //   location.href = 'genesis_des.html';
+  // });
 
   // about page
   let about = document.querySelector('.about');
@@ -85,4 +137,46 @@ title.style.top = '41%';
 
   });
 
+  // touch event
+  let clientY, deltaY = 0,
+    move = 0;
+
+  window.addEventListener('touchstart', (e) => {
+    clientY = e.changedTouches[0].clientY;
+  });
+
+  window.addEventListener('touchmove', (e) => {
+    deltaY = e.changedTouches[0].clientY;
+
+    if (clientY - deltaY > 0) {
+      if (move <= contents.offsetHeight + footerHeight) {
+        move += 20;
+      }
+    } else {
+      if (move >= 0) {
+        move -= 20;
+      }
+    }
+
+    if (move > contentsHeight + (footerHeight / 2)) {
+      goNext.style.opacity = 1;
+      if (document.documentElement.clientWidth > 1024) {
+        footerTxt.style.top = '40%';
+      } else {
+        footerTxt.style.top = '45%';
+      }
+
+    } else {
+      goNext.style.opacity = 0;
+      footerTxt.style.top = '100%';
+    }
+
+    if (move > footerHeight + 60) {
+      footer.style.bottom = 0;
+    } else {
+      footer.style.bottom = '-100%';
+    }
+    deltaY = clientY - deltaY;
+    contents.style.top = winHeight - move + 'px';
+  });
 });

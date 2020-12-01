@@ -7,7 +7,7 @@ window.addEventListener("DOMContentLoaded", function () {
   let spotWrapEle = '';
   let wrapEle = '';
   let elems, imgs, pages, seeMore, descript, imgSpot,
-    title, body, texts, imgWrap, loader, header;
+    title, body, texts, imgWrap, loader, header, goDetail;
   let colors = [];
 
   function variableFun() {
@@ -15,6 +15,7 @@ window.addEventListener("DOMContentLoaded", function () {
     imgWrap = document.querySelectorAll('.img-wrap');
     imgs = document.querySelectorAll('.img-wrap img');
     seeMore = document.querySelectorAll('.texts a');
+    goDetail = document.querySelectorAll('.texts img');
     descript = document.querySelectorAll('.descript');
     imgSpot = document.querySelectorAll('.spot');
     title = document.querySelectorAll('.texts h1');
@@ -42,7 +43,10 @@ window.addEventListener("DOMContentLoaded", function () {
       wrapEle += "<div class='texts'>"
       wrapEle += "<h1>" + el.name + "</h1>"
       wrapEle += "<p>" + el.subtitle + "</p>"
-      wrapEle += "<a href='#'>자세히 보기</a>"
+      wrapEle += "<a href='#'>"
+      wrapEle += "<p>자세히 보기</p>"
+      wrapEle += "<img src='./images/detail.png' alt=''>"
+      wrapEle += "</a>"
       wrapEle += "</div>"
 
       wrapEle += "<div class='img-wrap'>"
@@ -106,21 +110,17 @@ window.addEventListener("DOMContentLoaded", function () {
       if (attractMode) {
 
         position += -(position - attractTo) * 0.05;
-        if (document.documentElement.clientWidth > 1440) {
-          wrap.style.transform = 'translate(0,' + (-position * 500 + 50) + 'px)';
+        if (document.documentElement.clientWidth <= 1440) {
+          wrap.style.transform = 'translate(0,' + (-position * 400 + 50) + 'px)';
         } else {
-          if (document.documentElement.clientWidth < 1441) {
-            wrap.style.transform = 'translate(0,' + (-position * 400 + 50) + 'px)';
-          }
+          wrap.style.transform = 'translate(0,' + (-position * 500 + 50) + 'px)';
         }
       } else {
         position += Math.sign(diff) * Math.pow(Math.abs(diff), 0.7) * 0.015;
-        if (document.documentElement.clientWidth > 1440) {
-          wrap.style.transform = 'translate(0,' + (-position * 500 + 50) + 'px)';
+        if (document.documentElement.clientWidth <= 1440) {
+          wrap.style.transform = 'translate(0,' + (-position * 400 + 50) + 'px)';
         } else {
-          if (document.documentElement.clientWidth < 1441) {
-            wrap.style.transform = 'translate(0,' + (-position * 400 + 50) + 'px)';
-          }
+          wrap.style.transform = 'translate(0,' + (-position * 500 + 50) + 'px)';
         }
       }
     }
@@ -131,10 +131,11 @@ window.addEventListener("DOMContentLoaded", function () {
       o.dist = 1 - o.dist ** 2;
       if (attractMode) {
         body.style.backgroundColor = '#000';
+        goDetail[i].style.opacity = 0;
         elems[i].style.transform = 'scale(1.2)';
         imgWrap[i].style.transform = ' translateX(-60%)';
       } else {
-
+        goDetail[i].style.opacity = 1;
         imgWrap[i].style.transform = ' translateX(0)';
         if (document.documentElement.clientWidth > 1024) {
           elems[i].style.transform = 'scale(' + (1 + 0.4 * o.dist) + ')';
@@ -173,10 +174,13 @@ window.addEventListener("DOMContentLoaded", function () {
 
       e.addEventListener('mouseenter', () => {
         descript[i].classList.add('active');
+        goDetail[i].style.transform = 'translateX(10px)';
+
       });
 
       e.addEventListener('mouseleave', () => {
         descript[i].classList.remove('active');
+        goDetail[i].style.transform = 'translateX(0)';
       });
 
       e.addEventListener('click', (e) => {
@@ -193,12 +197,18 @@ window.addEventListener("DOMContentLoaded", function () {
   // imgs click event
   function imgsFor() {
     imgs.forEach((e, i) => {
-      e.addEventListener('click', function () {
+      e.addEventListener('click', () => {
         descript[i].classList.add('fullPage');
         imgSpot[i].classList.add('active');
         imgs[i].classList.add('active');
         indi.style.display = 'none';
         goPage(e, i);
+      });
+      e.addEventListener('mouseenter', () => {
+        goDetail[i].style.transform = 'translateX(10px)';
+      });
+      e.addEventListener('mouseleave', () => {
+        goDetail[i].style.transform = 'translateX(0)';
       });
     });
   }
@@ -240,7 +250,7 @@ window.addEventListener("DOMContentLoaded", function () {
           body.style.transition = '.5s';
         }
       } else {
-        if (i == Math.abs(touchPosition)) {
+        if (-i == touchPosition) {
           body.style.backgroundColor = colors[i];
           body.style.transition = '.5s';
         }
@@ -296,7 +306,7 @@ window.addEventListener("DOMContentLoaded", function () {
 
   // responsive swipe elements
   let clientX, deltaX = 0,
-    sss = 0;
+    move = 0;
   let touchPosition = 0;
 
   wrap.addEventListener('touchstart', (e) => {
@@ -304,38 +314,57 @@ window.addEventListener("DOMContentLoaded", function () {
   });
 
   wrap.addEventListener('touchmove', (e) => {
-    deltaX = e.changedTouches[0].clientX - clientX;
-    deltaX < 0 ? sss += 25 : sss -= 25;
+    deltaX = e.changedTouches[0].clientX;
 
-    wrap.style.transform = 'translateX(-' + sss + 'px)';
-
+    if (clientX - deltaX > 0) {
+      if (move <= 1000) {
+        move += 30;
+      }
+    } else {
+      if (move >= 0) {
+        move -= 30;
+      }
+    }
+    wrap.style.transform = 'translateX(-' + move + 'px)';
   });
 
   wrap.addEventListener('touchend', () => {
     if (deltaX > 0) {
-      touchPosition += 1;
+      if (touchPosition <= 0) {
+        touchPosition += 1;
+      }
     } else {
-      touchPosition -= 1;
+      if (touchPosition > -5) {
+        touchPosition -= 1;
+      }
     }
     if (touchPosition <= 0) {
-      if (touchPosition > -5) {
-        wrap.style.transform = 'translateX(' + (850 * touchPosition) + 'px)';
-      }
+      wrap.style.transform = 'translateX(' + (850 * touchPosition) + 'px)';
     }
+
     //indi
-    indis.forEach((e, i) => {
-      if (i == Math.abs(touchPosition)) {
-        indis[i].classList.add('active');
-        setTimeout(function () {
-          texts[i].style.opacity = 1;
-          texts[i].style.transition = '.5s';
-        }, 500);
-      } else {
-        e.classList.remove('active');
-        texts[i].style.opacity = 0;
-        texts[i].style.transition = 0;
-      }
-    });
+    function indiFun() {
+      indis.forEach((e, i) => {
+        if (-i == touchPosition) {
+          if (touchPosition > -5) {
+            indis[i].classList.add('active');
+          }
+          setTimeout(function () {
+            texts[i].style.opacity = 1;
+            texts[i].style.transition = '.5s';
+          }, 500);
+        } else {
+          if (touchPosition <= 0) {
+            e.classList.remove('active');
+            texts[i].style.opacity = 0;
+            texts[i].style.transition = 0;
+          }
+        }
+      });
+    }
+    if (document.documentElement.clientWidth < 1440) {
+      indiFun();
+    }
   });
 
 });
