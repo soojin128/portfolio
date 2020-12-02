@@ -64,7 +64,7 @@ body {
 
 .content h1 {
   position: absolute;
-  left: 1%;
+  left: 5%;
   color: #fff;
   font-size: 4rem;
   margin: 0;
@@ -85,6 +85,12 @@ body {
   top: 20%;
 }
 
+.content h1:nth-of-type(4) {
+  font-size: 1.8rem;
+  top: 30%;
+  left: 6%;
+}
+
 .content h1.active {
   opacity: 1;
 }
@@ -101,14 +107,86 @@ body {
   top: 18%;
 }
 
-.skills {
-  position: absolute;
+.content h1:nth-of-type(4).active {
   top: 26%;
-  left: 1%;
 }
 
-.skills h3 {
+.skills {
+  position: absolute;
+  top: 34%;
+  left: 0;
+  width: 100%;
+  height: 40%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  opacity: 0;
+  -webkit-transition: 1s;
+  transition: 1s;
+}
+
+.skills ul {
+  width: 90%;
+  margin: 0 auto;
+}
+
+.skills ul li {
+  list-style: none;
+  width: 48%;
+  display: inline-block;
+}
+
+.skills ul li dt {
+  width: 58%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.skills ul li h3 {
   color: #fff;
+  font-weight: 300;
+}
+
+.skills ul li div {
+  width: 40%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.skills ul li span {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #a6937c;
+}
+
+.skills.active {
+  opacity: 1;
+  top: 30%;
 }
 
 .fix {

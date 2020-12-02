@@ -224,7 +224,7 @@ window.addEventListener("DOMContentLoaded", function () {
   let about = document.querySelector('.about');
   let aboutBtn = document.querySelector('.about-btn');
 
-  aboutBtn.addEventListener('mouseenter', function () {
+  aboutBtn.addEventListener('mouseover', function () {
     about.classList.add('active');
   });
 

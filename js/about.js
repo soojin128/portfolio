@@ -15,31 +15,33 @@ window.addEventListener("DOMContentLoaded", function () {
 
   // text animation
   function h1Slide() {
-    h1.forEach((e,i) =>{
-      setTimeout(function() {
+    h1.forEach((e, i) => {
+      setTimeout(function () {
         h1[i].classList.add('active');
-      },300*(i+1));
+      }, 300 * (i + 1));
     });
   }
 
   //load event
   window.addEventListener('load', function () {
-    fixEle.style.opacity='1';
+    fixEle.style.opacity = '1';
     back.style.opacity = '1';
     h1Slide();
   });
-  
+
+
   let winHeight = document.documentElement.clientHeight;
   let scroll = 0;
+  let skills = document.querySelector('.skills');
   window.addEventListener('wheel', (e) => {
-    
+
     if (e.deltaY < 0) {
       if (scroll > 0) {
-          scroll -= 100;
+        scroll -= 100;
       }
       scrollUp();
     } else {
-      if (scroll < contents.offsetHeight-winHeight) {
+      if (scroll < contents.offsetHeight - winHeight) {
         scroll += 100;
       }
       scrollDown();
@@ -48,14 +50,17 @@ window.addEventListener("DOMContentLoaded", function () {
 
   function scrollUp() {
     if (scroll >= 0) {
-      contents.style.top = - scroll + 'px';
+      contents.style.top = -scroll + 'px';
     }
   }
 
   function scrollDown() {
-    contents.style.top = - scroll + 'px';
+    contents.style.top = -scroll + 'px';
+      if (scroll > 100) {
+        setTimeout(function () {
+          skills.classList.add('active');
+        }, 300);
+      }
+
   }
-
-  //fullpage scroll
-
 });
