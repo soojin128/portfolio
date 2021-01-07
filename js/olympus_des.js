@@ -98,7 +98,8 @@ window.addEventListener("DOMContentLoaded", function () {
 
   //go page
   let goOlympus = document.querySelector('.spec li a');
-  goOlympus.addEventListener('click', () => {
+  goOlympus.addEventListener('click', (e) => {
+    e.preventDefault();
     window.open('https://soojin128.github.io/project/index_test.html', 'olympus');
   });
 

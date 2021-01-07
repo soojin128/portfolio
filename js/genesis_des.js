@@ -96,7 +96,8 @@ window.addEventListener("DOMContentLoaded", function () {
 
   //go page
   let goGenesis = document.querySelector('.spec li a');
-  goGenesis.addEventListener('click', () => {
+  goGenesis.addEventListener('click', (e) => {
+    e.preventDefault();
     window.open('https://soojin128.github.io/genesis/', 'olympus');
   });
 
