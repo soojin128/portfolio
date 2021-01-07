@@ -17,7 +17,7 @@ body {
   animation-delay: 250ms;
 
   h1 {
-    font-size: 5rem;
+    font-size: 5vw;
     white-space: pre-line;
     color: #fff;
   }
@@ -44,7 +44,7 @@ body {
   width: 100%;
   height: 100vh;
   margin: 0;
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   z-index: 1;
@@ -84,7 +84,7 @@ body {
     color: #000;
     text-decoration: none;
     font-weight: bold;
-    font-size: 1.2rem;
+    font-size: 1.2vw;
   }
 }
 
@@ -113,7 +113,7 @@ body {
   right: 21%;
   display: flex;
   justify-content: space-between;
-  align-items: middle;
+  align-items: center;
   transition: .2s;
 
   .texts {
@@ -121,12 +121,12 @@ body {
     transition: 1s;
 
     h1 {
-      font-size: 4.6rem;
+      font-size: 4.6vw;
     }
 
     p {
       white-space: pre-line;
-      font-size: .9rem;
+      font-size: 1vw;
     }
 
     a {
@@ -139,7 +139,7 @@ body {
       p {
         color: #000;
         font-weight: bold;
-        font-size: .8rem;
+        font-size: .9vw;
       }
 
       img {
@@ -245,11 +245,6 @@ body {
     left: 0;
     z-index: 1;
     transition: .5s;
-
-    h3 {
-      margin-left: 20px;
-      cursor: pointer;
-    }
   }
 
   .d0 {
@@ -289,6 +284,7 @@ body {
   transition: .3s;
 
   li {
+    font-size: 1vw;
     list-style: none;
     color: gray;
     transition: .3s;
@@ -312,9 +308,9 @@ body {
   transition: .5s;
 
   li {
-    width: 6px;
-    height: 14px;
-    margin-bottom: 70%;
+    width: .5vw;
+    height: 2vh;
+    margin-bottom: 50%;
     border-radius: 20%;
     background: gray;
     cursor: pointer;
@@ -362,7 +358,7 @@ body {
     animation-delay: 250ms;
 
     h1 {
-      font-size: 4rem;
+      font-size: 5vw;
       white-space: pre-line;
       color: #fff;
     }
@@ -385,6 +381,36 @@ body {
     }
   }
 
+  .about {
+    width: 100%;
+    height: 100vh;
+    margin: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    transition: .5s;
+    background: #1b1b1b;
+    transform: translateX(100%);
+
+    .fix {
+      width: 50%;
+      height: 100vh;
+      background: #a6937c;
+      position: fixed;
+      left: 0;
+      top: 0;
+    }
+  }
+
+  .about.active {
+    transform: translateX(99%);
+  }
+
+  .about.fullPage {
+    transform: translateX(0);
+  }
+
   .header {
     width: 90%;
     height: 50px;
@@ -399,7 +425,7 @@ body {
       color: #000;
       text-decoration: none;
       font-weight: bold;
-      font-size: 1.2rem;
+      font-size: 1.2vw;
     }
   }
 
@@ -428,7 +454,7 @@ body {
     right: 21%;
     display: flex;
     justify-content: space-between;
-    align-items: middle;
+    align-items: center;
     transition: .2s;
 
     .texts {
@@ -436,19 +462,32 @@ body {
       transition: 1s;
 
       h1 {
-        font-size: 4rem;
+        font-size: 4.6vw;
       }
 
       p {
         white-space: pre-line;
-        font-size: .8rem;
+        font-size: 1vw;
       }
 
       a {
-        color: #000;
         text-decoration: none;
-        font-weight: bold;
-        font-size: .7rem;
+        width: 26%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        p {
+          color: #000;
+          font-weight: bold;
+          font-size: .9vw;
+        }
+
+        img {
+          width: 20%;
+          height: 20%;
+          transition: .5s;
+        }
       }
     }
 
@@ -512,8 +551,8 @@ body {
     transition: .5s;
 
     .spot {
-      width: 50%;
-      height: 50vh;
+      width: 48%;
+      height: 60vh;
       position: absolute;
       top: 18%;
       right: 9%;
@@ -526,7 +565,7 @@ body {
   .spot.active {
     opacity: 1;
     z-index: 3;
-    transform: translateX(-32%) translateY(-6%) scale(1);
+    transform: translateX(-35%) translateY(-14%) scale(1);
   }
 
   .description {
@@ -547,13 +586,6 @@ body {
       left: 0;
       z-index: 1;
       transition: .5s;
-      h3 {
-        position: fixed;
-        top: 0;
-        left: 20px;
-        opacity: 0;
-        z-index: 4;
-      }
     }
 
     .d0 {
@@ -585,54 +617,26 @@ body {
     transform: translateX(100%);
   }
 
-  .about {
-    width: 100%;
-    height: 100vh;
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 1;
-    transition: .5s;
-    background: #1b1b1b;
-    transform: translateX(100%);
-  
-    .fix {
-      width: 50%;
-      height: 3000px;
-      background: #a6937c;
-      position: fixed;
-      left: 0;
-      top: 0;
-    }
-  }
-  
-  .about.active {
-    transform: translateX(99%);
-  }
-  
-  .about.fullPage {
-    transform: translateX(0);
-  }
-
   .nav {
     position: fixed;
     right: 3.4%;
     top: 47.7%;
     opacity: 0;
     transition: .3s;
-
+  
     li {
+      font-size: 1vw;
       list-style: none;
       color: gray;
       transition: .3s;
       cursor: pointer;
     }
-
+  
     li:hover {
       color: #fff;
     }
   }
-
+  
   .indi {
     position: fixed;
     right: 2%;
@@ -643,32 +647,32 @@ body {
     padding: 0;
     opacity: 0;
     transition: .5s;
-
+  
     li {
-      width: 6px;
-      height: 14px;
-      margin-bottom: 70%;
+      width: .5vw;
+      height: 2vh;
+      margin-bottom: 50%;
       border-radius: 20%;
       background: gray;
       cursor: pointer;
     }
-
+  
     li:nth-of-type(1).active {
       background: rgb(245, 76, 76);
     }
-
+  
     li:nth-of-type(2).active {
       background: rgb(76, 115, 245);
     }
-
+  
     li:nth-of-type(3).active {
       background: rgb(245, 228, 76);
     }
-
+  
     li:nth-of-type(4).active {
       background: rgb(163, 76, 245);
     }
-
+  
     li:nth-of-type(5).active {
       background: rgb(76, 245, 223);
     }
@@ -696,10 +700,10 @@ body {
     z-index: 10;
     transition: .5s;
     animation: loader 2.5s forwards;
-    // display: none;
+    animation-delay: 250ms;
 
     h1 {
-      font-size: 3rem;
+      font-size: 4vw;
       white-space: pre-line;
       color: #fff;
     }
@@ -739,7 +743,7 @@ body {
       color: #000;
       text-decoration: none;
       font-weight: bold;
-      font-size: 1rem;
+      font-size: 1.2vw;
     }
   }
 
@@ -782,17 +786,18 @@ body {
       transition: 1s;
       position: absolute;
       top: 40%;
-      left: 10%;
+      left: 8%;
+      text-align: left;
       opacity: 0;
 
       h1 {
-        font-size: 8rem;
+        font-size: 12vw;
         margin: 30% 0 0 0;
       }
 
       p {
         white-space: pre-line;
-        font-size: 1rem;
+        font-size: 2vw;
       }
 
       a {
@@ -805,13 +810,14 @@ body {
         p {
           color: #000;
           font-weight: bold;
-          font-size: .8rem;
+          font-size: 1vw;
         }
 
         img {
           width: 16%;
           height: 10%;
           transition: .5s;
+          opacity: 0;
         }
       }
     }

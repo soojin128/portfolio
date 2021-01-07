@@ -7,16 +7,20 @@ window.addEventListener("DOMContentLoaded", function () {
   });
 
   // back btn
-  let back = document.querySelectorAll('.back');
+  let back = document.querySelector('.back');
   let closeDoor = document.querySelector('.close-door');
 
-  back.forEach((e, i) => {
-    e.addEventListener('click', function () {
-      closeDoor.classList.add('active');
-      setTimeout(function () {
-        location.href = 'portfolio.html';
-      }, 600);
-    });
+  back.addEventListener('click', function () {
+    closeDoor.classList.add('active');
+    setTimeout(function () {
+      location.href = 'portfolio.html';
+    }, 600);
+  });
+  back.addEventListener('mouseover', () => {
+    closeDoor.style.transform = 'translateX(-99%)';
+  });
+  back.addEventListener('mouseleave', () => {
+    closeDoor.style.transform = 'translateX(-100%)';
   });
 
   // downBtn
@@ -55,11 +59,7 @@ window.addEventListener("DOMContentLoaded", function () {
   function scrollUp() {
     if (scroll >= 0) {
       if (scroll <= 300) {
-        if (document.documentElement.clientWidth > 1440) {
-          img.style.transform = 'scale(' + (1.2 - scroll * 0.0008) + ') rotate(' + scroll * 0.06 + 'deg)';
-        } else {
-          img.style.transform = 'rotate(' + scroll * 0.06 + 'deg)';
-        }
+        img.style.transform = 'scale(' + (1.2 - scroll * 0.0008) + ') rotate(' + scroll * 0.06 + 'deg)';
         title.style.transform = 'translateY(' + scroll * 0.1 + 'px)';
       }
     }
@@ -71,11 +71,7 @@ window.addEventListener("DOMContentLoaded", function () {
 
   function scrollDown() {
     if (scroll <= 300) {
-      if (document.documentElement.clientWidth > 1440) {
-        img.style.transform = 'scale(' + (1.2 - scroll * 0.0008) + ') rotate(' + scroll * 0.06 + 'deg)';
-      } else {
-        img.style.transform = 'rotate(' + scroll * 0.06 + 'deg)';
-      }
+      img.style.transform = 'scale(' + (1.2 - scroll * 0.0008) + ') rotate(' + scroll * 0.06 + 'deg)';
       title.style.transform = 'translateY(' + scroll * 0.6 + 'px)';
     }
     contents.style.top = winHeight - scroll + 'px';
@@ -90,12 +86,7 @@ window.addEventListener("DOMContentLoaded", function () {
 
   function footerFun() {
     if (scroll > contentsHeight - (footerHeight / 4)) {
-      if (document.documentElement.clientWidth == 1440) {
-        footerTxt.style.top = '40%';
-      } else {
-        footerTxt.style.top = '45%';
-      }
-
+      footerTxt.style.top = '46%';
       goNext.style.opacity = 1;
     } else {
       footerTxt.style.top = '100%';
@@ -104,17 +95,18 @@ window.addEventListener("DOMContentLoaded", function () {
   }
 
   //go page
-  let goGenesis = document.querySelector('.about-project a');
+  let goGenesis = document.querySelector('.spec li a');
   goGenesis.addEventListener('click', () => {
     window.open('https://soojin128.github.io/GENESIS/', 'olympus');
   });
 
   //next btn
   let goNext = document.querySelector('.go-next');
-  // goNext.addEventListener('click', (e) => {
-  //   e.preventDefault();
+  goNext.addEventListener('click', (e) => {
+    e.preventDefault();
+    alert('준비중 입니다.');
   //   location.href = 'genesis_des.html';
-  // });
+  });
 
   // about page
   let about = document.querySelector('.about');

@@ -5,8 +5,15 @@ window.addEventListener("DOMContentLoaded", function () {
   let h1 = document.querySelectorAll('.content h1');
   let closeDoor = document.querySelector('.close-door');
   let contentTxt = document.querySelector('.content article');
-console.log(document.documentElement.clientHeight)
+  let _scroll = document.querySelector('.scroll');
+
   //back btn
+  back.addEventListener('mouseover', () => {
+    closeDoor.style.transform = 'translateX(-99%)';
+  });
+  back.addEventListener('mouseleave', () => {
+    closeDoor.style.transform = 'translateX(-100%)';
+  });
   back.addEventListener('click', function () {
     closeDoor.classList.add('active');
     setTimeout(function () {
@@ -31,6 +38,9 @@ console.log(document.documentElement.clientHeight)
     setTimeout(function () {
       contentTxt.style.opacity = 1;
     }, 2600);
+    setTimeout(function () {
+      _scroll.style.opacity = '1';
+    }, 3000);
   });
 
 

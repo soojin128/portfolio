@@ -21,7 +21,7 @@ body {
 }
 
 .loader h1 {
-  font-size: 5rem;
+  font-size: 5vw;
   white-space: pre-line;
   color: #fff;
 }
@@ -60,7 +60,7 @@ body {
   width: 100%;
   height: 100vh;
   margin: 0;
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   z-index: 1;
@@ -112,7 +112,7 @@ body {
   color: #000;
   text-decoration: none;
   font-weight: bold;
-  font-size: 1.2rem;
+  font-size: 1.2vw;
 }
 
 .wrap {
@@ -154,9 +154,9 @@ body {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  -webkit-box-align: middle;
-      -ms-flex-align: middle;
-          align-items: middle;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   -webkit-transition: .2s;
   transition: .2s;
 }
@@ -168,12 +168,12 @@ body {
 }
 
 .n .texts h1 {
-  font-size: 4.6rem;
+  font-size: 4.6vw;
 }
 
 .n .texts p {
   white-space: pre-line;
-  font-size: .9rem;
+  font-size: 1vw;
 }
 
 .n .texts a {
@@ -193,7 +193,7 @@ body {
 .n .texts a p {
   color: #000;
   font-weight: bold;
-  font-size: .8rem;
+  font-size: .9vw;
 }
 
 .n .texts a img {
@@ -325,11 +325,6 @@ body {
   transition: .5s;
 }
 
-.description .descript h3 {
-  margin-left: 20px;
-  cursor: pointer;
-}
-
 .description .d0 {
   background: #f54c4c;
 }
@@ -370,6 +365,7 @@ body {
 }
 
 .nav li {
+  font-size: 1vw;
   list-style: none;
   color: gray;
   -webkit-transition: .3s;
@@ -395,9 +391,9 @@ body {
 }
 
 .indi li {
-  width: 6px;
-  height: 14px;
-  margin-bottom: 70%;
+  width: .5vw;
+  height: 2vh;
+  margin-bottom: 50%;
   border-radius: 20%;
   background: gray;
   cursor: pointer;
@@ -445,7 +441,7 @@ body {
             animation-delay: 250ms;
   }
   .loader h1 {
-    font-size: 4rem;
+    font-size: 5vw;
     white-space: pre-line;
     color: #fff;
   }
@@ -477,6 +473,36 @@ body {
       top: 20%;
     }
   }
+  .about {
+    width: 100%;
+    height: 100vh;
+    margin: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    -webkit-transition: .5s;
+    transition: .5s;
+    background: #1b1b1b;
+    -webkit-transform: translateX(100%);
+            transform: translateX(100%);
+  }
+  .about .fix {
+    width: 50%;
+    height: 100vh;
+    background: #a6937c;
+    position: fixed;
+    left: 0;
+    top: 0;
+  }
+  .about.active {
+    -webkit-transform: translateX(99%);
+            transform: translateX(99%);
+  }
+  .about.fullPage {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
   .header {
     width: 90%;
     height: 50px;
@@ -498,7 +524,7 @@ body {
     color: #000;
     text-decoration: none;
     font-weight: bold;
-    font-size: 1.2rem;
+    font-size: 1.2vw;
   }
   .wrap {
     position: relative;
@@ -536,9 +562,9 @@ body {
     -webkit-box-pack: justify;
         -ms-flex-pack: justify;
             justify-content: space-between;
-    -webkit-box-align: middle;
-        -ms-flex-align: middle;
-            align-items: middle;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
     -webkit-transition: .2s;
     transition: .2s;
   }
@@ -548,17 +574,35 @@ body {
     transition: 1s;
   }
   .n .texts h1 {
-    font-size: 4rem;
+    font-size: 4.6vw;
   }
   .n .texts p {
     white-space: pre-line;
-    font-size: .8rem;
+    font-size: 1vw;
   }
   .n .texts a {
-    color: #000;
     text-decoration: none;
+    width: 26%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .n .texts a p {
+    color: #000;
     font-weight: bold;
-    font-size: .7rem;
+    font-size: .9vw;
+  }
+  .n .texts a img {
+    width: 20%;
+    height: 20%;
+    -webkit-transition: .5s;
+    transition: .5s;
   }
   .n .img-wrap {
     width: 46%;
@@ -630,8 +674,8 @@ body {
     transition: .5s;
   }
   .spot-wrap .spot {
-    width: 50%;
-    height: 50vh;
+    width: 48%;
+    height: 60vh;
     position: absolute;
     top: 18%;
     right: 9%;
@@ -643,8 +687,8 @@ body {
   .spot.active {
     opacity: 1;
     z-index: 3;
-    -webkit-transform: translateX(-32%) translateY(-6%) scale(1);
-            transform: translateX(-32%) translateY(-6%) scale(1);
+    -webkit-transform: translateX(-35%) translateY(-14%) scale(1);
+            transform: translateX(-35%) translateY(-14%) scale(1);
   }
   .description {
     width: 100%;
@@ -666,13 +710,6 @@ body {
     z-index: 1;
     -webkit-transition: .5s;
     transition: .5s;
-  }
-  .description .descript h3 {
-    position: fixed;
-    top: 0;
-    left: 20px;
-    opacity: 0;
-    z-index: 4;
   }
   .description .d0 {
     background: #f54c4c;
@@ -697,35 +734,6 @@ body {
     -webkit-transform: translateX(100%);
             transform: translateX(100%);
   }
-  .about {
-    width: 100%;
-    height: 100vh;
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 1;
-    -webkit-transition: .5s;
-    transition: .5s;
-    background: #1b1b1b;
-    -webkit-transform: translateX(100%);
-            transform: translateX(100%);
-  }
-  .about .fix {
-    width: 50%;
-    height: 3000px;
-    background: #a6937c;
-    position: fixed;
-    left: 0;
-    top: 0;
-  }
-  .about.active {
-    -webkit-transform: translateX(99%);
-            transform: translateX(99%);
-  }
-  .about.fullPage {
-    -webkit-transform: translateX(0);
-            transform: translateX(0);
-  }
   .nav {
     position: fixed;
     right: 3.4%;
@@ -735,6 +743,7 @@ body {
     transition: .3s;
   }
   .nav li {
+    font-size: 1vw;
     list-style: none;
     color: gray;
     -webkit-transition: .3s;
@@ -757,9 +766,9 @@ body {
     transition: .5s;
   }
   .indi li {
-    width: 6px;
-    height: 14px;
-    margin-bottom: 70%;
+    width: .5vw;
+    height: 2vh;
+    margin-bottom: 50%;
     border-radius: 20%;
     background: gray;
     cursor: pointer;
@@ -801,9 +810,11 @@ body {
     transition: .5s;
     -webkit-animation: loader 2.5s forwards;
             animation: loader 2.5s forwards;
+    -webkit-animation-delay: 250ms;
+            animation-delay: 250ms;
   }
   .loader h1 {
-    font-size: 3rem;
+    font-size: 4vw;
     white-space: pre-line;
     color: #fff;
   }
@@ -862,7 +873,7 @@ body {
     color: #000;
     text-decoration: none;
     font-weight: bold;
-    font-size: 1rem;
+    font-size: 1.2vw;
   }
   .wrap {
     width: 4300px;
@@ -920,16 +931,17 @@ body {
     transition: 1s;
     position: absolute;
     top: 40%;
-    left: 10%;
+    left: 8%;
+    text-align: left;
     opacity: 0;
   }
   .n .texts h1 {
-    font-size: 8rem;
+    font-size: 12vw;
     margin: 30% 0 0 0;
   }
   .n .texts p {
     white-space: pre-line;
-    font-size: 1rem;
+    font-size: 2vw;
   }
   .n .texts a {
     text-decoration: none;
@@ -947,13 +959,14 @@ body {
   .n .texts a p {
     color: #000;
     font-weight: bold;
-    font-size: .8rem;
+    font-size: 1vw;
   }
   .n .texts a img {
     width: 16%;
     height: 10%;
     -webkit-transition: .5s;
     transition: .5s;
+    opacity: 0;
   }
   .n .img-wrap {
     width: 100%;

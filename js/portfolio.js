@@ -7,7 +7,7 @@ window.addEventListener("DOMContentLoaded", function () {
   let spotWrapEle = '';
   let wrapEle = '';
   let elems, imgs, pages, seeMore, descript, imgSpot,
-    title, body, texts, imgWrap, loader, header, goDetail;
+    title, body, texts, imgWrap, loader, header, goDetail,arrow;
   let colors = [];
 
   function variableFun() {
@@ -26,6 +26,7 @@ window.addEventListener("DOMContentLoaded", function () {
     texts = document.querySelectorAll('.texts');
     loader = document.querySelector('.loader');
     header = document.querySelector('.header');
+    arrow = document.querySelector('.texts a img');
   }
 
   //data load
@@ -36,7 +37,6 @@ window.addEventListener("DOMContentLoaded", function () {
 
   function dataFun() {
     response = JSON.parse(data.responseText);
-    wrapEle.innerHTML = '';
 
     response.items.forEach(function (el, idx) {
       wrapEle = "<div class='n " + 'n' + idx + "'>"
@@ -70,6 +70,7 @@ window.addEventListener("DOMContentLoaded", function () {
       loader.style.display = 'none';
       header.style.opacity = '1';
       indi.style.opacity = '1';
+      arrow.style.opacity = '1';
       texts.forEach((e, i) => {
         texts[i].style.opacity = 1;
       });
@@ -108,7 +109,6 @@ window.addEventListener("DOMContentLoaded", function () {
     let diff = (rounded - position);
     if (document.documentElement.clientWidth > 1024) {
       if (attractMode) {
-
         position += -(position - attractTo) * 0.05;
         if (document.documentElement.clientWidth <= 1440) {
           wrap.style.transform = 'translate(0,' + (-position * 400 + 50) + 'px)';
@@ -147,8 +147,10 @@ window.addEventListener("DOMContentLoaded", function () {
       elems[i].classList.remove('active');
       if (i == Math.round(position)) {
         elems[i].classList.add('active');
+          indis[i].classList.add('active');
+      }else{
+        indis[i].classList.remove('active');
       }
-
       if (one) {
         elems[0].style.transition = '1s';
         one = false;
@@ -197,17 +199,24 @@ window.addEventListener("DOMContentLoaded", function () {
   // imgs click event
   function imgsFor() {
     imgs.forEach((e, i) => {
-      e.addEventListener('click', () => {
-        descript[i].classList.add('fullPage');
-        imgSpot[i].classList.add('active');
-        imgs[i].classList.add('active');
-        indi.style.display = 'none';
-        goPage(e, i);
+      e.addEventListener('click', (el) => {
+        if(i == 0 || i == 1){
+          descript[i].classList.add('fullPage');
+          imgSpot[i].classList.add('active');
+          imgs[i].classList.add('active');
+          indi.style.display = 'none';
+          goPage(e, i);
+        }else{
+          el.preventDefault();
+        }
+        
       });
       e.addEventListener('mouseenter', () => {
+        descript[i].classList.add('active');
         goDetail[i].style.transform = 'translateX(10px)';
       });
       e.addEventListener('mouseleave', () => {
+        descript[i].classList.remove('active');
         goDetail[i].style.transform = 'translateX(0)';
       });
     });
@@ -268,13 +277,11 @@ window.addEventListener("DOMContentLoaded", function () {
     nav.addEventListener('mouseenter', () => {
       attractMode = true;
       nav.style.opacity = '1';
-      indi.classList.add('active');
     });
 
     nav.addEventListener('mouseleave', () => {
       attractMode = false;
       nav.style.opacity = '0';
-      indi.classList.remove('active');
     });
 
     navs.forEach((el, i) => {
@@ -292,17 +299,14 @@ window.addEventListener("DOMContentLoaded", function () {
 
     indi.addEventListener('mouseover', () => {
       nav.style.opacity = '1';
-      indi.classList.add('active');
     });
 
     indi.addEventListener('mouseleave', () => {
       nav.style.opacity = '0';
-      indi.classList.remove('active');
     });
   }
-  if (document.documentElement.clientWidth < 1025) {
-    indis[0].classList.add('active');
-  }
+  
+
 
   // responsive swipe elements
   let clientX, deltaX = 0,
@@ -315,7 +319,6 @@ window.addEventListener("DOMContentLoaded", function () {
 
   wrap.addEventListener('touchmove', (e) => {
     deltaX = e.changedTouches[0].clientX;
-
     if (clientX - deltaX > 0) {
       if (move <= 1000) {
         move += 30;
@@ -342,7 +345,7 @@ window.addEventListener("DOMContentLoaded", function () {
       wrap.style.transform = 'translateX(' + (850 * touchPosition) + 'px)';
     }
 
-    //indi
+    // tablet indi
     function indiFun() {
       indis.forEach((e, i) => {
         if (-i == touchPosition) {

@@ -2,7 +2,7 @@
   "items": [{
       "thumb": "images/olympus.jpg",
       "name": "OLYMPUS",
-      "subtitle": "올림푸스 코리아 홈페이지를 트렌드에 맞게<br>직관적이고 심플하게 리뉴얼 했습니다. "
+      "subtitle": "올림푸스 코리아 전체페이지를 리뉴얼 해보았습니다. "
     },
     {
       "thumb": "images/genesis.jpg",
@@ -11,18 +11,18 @@
     },
     {
       "thumb": "images/olympus.jpg",
-      "name": "OLYMPUS",
-      "subtitle": "olympus olympus olympus olympus olympus <br> olympus olympus olympus olympus olympus"
+      "name": "준비중",
+      "subtitle": "준비중 준비중 준비중 준비중 준비중 준비중 준비중 준비중 <br>준비중 준비중 준비중 준비중 준비중 준비중 준비중 준비중"
     },
     {
       "thumb": "images/genesis.jpg",
-      "name": "GENESIS",
-      "subtitle": "genesis genesis genesis genesis genesis <br> genesis genesis genesis genesis genesis"
+      "name": "준비중",
+      "subtitle": "준비중 준비중 준비중 준비중 준비중 준비중 준비중 준비중 <br>준비중 준비중 준비중 준비중 준비중 준비중 준비중 준비중"
     },
     {
       "thumb": "images/olympus.jpg",
-      "name": "OLYMPUS",
-      "subtitle": "olympus olympus olympus olympus olympus <br> olympus olympus olympus olympus olympus"
+      "name": "준비중",
+      "subtitle": "준비중 준비중 준비중 준비중 준비중 준비중 준비중 준비중 <br>준비중 준비중 준비중 준비중 준비중 준비중 준비중 준비중"
     }
 
   ]

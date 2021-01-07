@@ -40,6 +40,7 @@ body {
   top: 0;
   left: 20px;
   color: #fff;
+  font-size: 1.2vw;
   cursor: pointer;
   z-index: 4;
   opacity: 0;
@@ -49,7 +50,7 @@ body {
 
 .contents {
   width: 50%;
-  height: 2000px;
+  height: 200vh;
   position: absolute;
   top: 0;
   right: 0;
@@ -66,7 +67,7 @@ body {
   position: absolute;
   left: 5%;
   color: #fff;
-  font-size: 4rem;
+  font-size: 3vw;
   margin: 0;
   opacity: 0;
   -webkit-transition: 1s;
@@ -103,7 +104,7 @@ body {
 
 .content article {
   position: absolute;
-  top: 30%;
+  top: 26%;
   left: 5%;
   opacity: 0;
   -webkit-transition: 1s;
@@ -113,7 +114,95 @@ body {
 .content article p {
   width: 90%;
   color: #fff;
-  font-size: 1.4rem;
+  font-size: 1.4vw;
+}
+
+.scroll {
+  opacity: 0;
+  -webkit-transition: 1s;
+  transition: 1s;
+}
+
+.scroll p {
+  position: absolute;
+  top: 94vh;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  color: #fff;
+  font-size: 1vw;
+}
+
+.scroll .scroll_icon {
+  display: block;
+  position: absolute;
+  top: 90vh;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  height: 2.6vw;
+  width: 1.6vw;
+  border: .2vw solid #fff;
+  border-radius: 1vw;
+}
+
+.scroll .scroll_icon .scroll_icon_dot {
+  display: block;
+  position: absolute;
+  left: 34%;
+  background: #fff;
+  height: .4rem;
+  width: .4rem;
+  top: .5rem;
+  border-radius: 50%;
+  -webkit-transform-origin: top center;
+          transform-origin: top center;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  -webkit-animation: scroll 2s ease-out infinite;
+          animation: scroll 2s ease-out infinite;
+}
+
+@-webkit-keyframes scroll {
+  0% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+    opacity: 1;
+  }
+  25% {
+    opacity: 1;
+  }
+  75% {
+    -webkit-transform: translateY(0.75rem);
+            transform: translateY(0.75rem);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+    opacity: 0;
+  }
+}
+
+@keyframes scroll {
+  0% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+    opacity: 1;
+  }
+  25% {
+    opacity: 1;
+  }
+  75% {
+    -webkit-transform: translateY(0.75rem);
+            transform: translateY(0.75rem);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+    opacity: 0;
+  }
 }
 
 .skills {
@@ -133,6 +222,7 @@ body {
 
 .skills .box h2 {
   color: #fff;
+  font-size: 1.4vw;
 }
 
 .skills ul {
@@ -163,6 +253,7 @@ body {
 
 .skills ul li h3 {
   color: #fff;
+  font-size: 1.2vw;
 }
 
 .skills ul li div {
@@ -187,6 +278,7 @@ body {
 
 .skills ul li p {
   color: #fff;
+  font-size: 1vw;
 }
 
 .skills ul:nth-of-type(3) span:last-child,
@@ -247,7 +339,7 @@ body {
 
 .info .name p {
   margin: 0;
-  font-size: 1.2rem;
+  font-size: 1.2vw;
   text-align: center;
   font-weight: bold;
 }
@@ -263,7 +355,7 @@ body {
 }
 
 .info .contact li strong {
-  font-size: 1.1rem;
+  font-size: 1vw;
   padding-right: 10px;
 }
 
@@ -288,13 +380,13 @@ body {
 
 .info .edu_career table caption {
   text-align: left;
-  font-size: 1.1rem;
+  font-size: 1.1vw;
   font-weight: bold;
-  padding-bottom: 20px;
+  padding-bottom: 4%;
 }
 
 .info .edu_career table tr td:first-child {
-  padding-right: 10px;
+  padding-right: 10%;
 }
 
 .info .edu_career table:first-child {
@@ -317,9 +409,9 @@ body {
 
 .info .experience caption {
   text-align: left;
-  font-size: 1.1rem;
+  font-size: 1.1vw;
   font-weight: bold;
-  padding-bottom: 20px;
+  padding-bottom: 8%;
 }
 
 .info .experience tr td:first-child {
@@ -329,7 +421,7 @@ body {
 @media (max-width: 1440px) {
   .contents {
     width: 50%;
-    height: 2000px;
+    height: 200vh;
     position: absolute;
     top: 0;
     right: 0;
@@ -344,7 +436,7 @@ body {
     position: absolute;
     left: 5%;
     color: #fff;
-    font-size: 3rem;
+    font-size: 3vw;
     margin: 0;
     opacity: 0;
     -webkit-transition: 1s;
@@ -373,7 +465,7 @@ body {
   }
   .content article {
     position: absolute;
-    top: 24%;
+    top: 22%;
     left: 5%;
     opacity: 0;
     -webkit-transition: 1s;
@@ -382,7 +474,89 @@ body {
   .content article p {
     width: 90%;
     color: #fff;
-    font-size: 1.2rem;
+    font-size: 1.2vw;
+  }
+  .scroll {
+    opacity: 0;
+    -webkit-transition: 1s;
+    transition: 1s;
+  }
+  .scroll p {
+    position: absolute;
+    top: 94vh;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+            transform: translateX(-50%);
+    color: #fff;
+    font-size: 1vw;
+  }
+  .scroll .scroll_icon {
+    display: block;
+    position: absolute;
+    top: 90vh;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+            transform: translateX(-50%);
+    height: 2.6vw;
+    width: 1.6vw;
+    border: .2vw solid #fff;
+    border-radius: 1vw;
+  }
+  .scroll .scroll_icon .scroll_icon_dot {
+    display: block;
+    position: absolute;
+    left: 34%;
+    background: #fff;
+    height: .4rem;
+    width: .4rem;
+    top: .5rem;
+    border-radius: 50%;
+    -webkit-transform-origin: top center;
+            transform-origin: top center;
+    -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+    -webkit-animation: scroll 2s ease-out infinite;
+            animation: scroll 2s ease-out infinite;
+  }
+  @-webkit-keyframes scroll {
+    0% {
+      -webkit-transform: translateY(0);
+              transform: translateY(0);
+      opacity: 1;
+    }
+    25% {
+      opacity: 1;
+    }
+    75% {
+      -webkit-transform: translateY(0.75rem);
+              transform: translateY(0.75rem);
+      opacity: 0;
+    }
+    100% {
+      -webkit-transform: translateY(0);
+              transform: translateY(0);
+      opacity: 0;
+    }
+  }
+  @keyframes scroll {
+    0% {
+      -webkit-transform: translateY(0);
+              transform: translateY(0);
+      opacity: 1;
+    }
+    25% {
+      opacity: 1;
+    }
+    75% {
+      -webkit-transform: translateY(0.75rem);
+              transform: translateY(0.75rem);
+      opacity: 0;
+    }
+    100% {
+      -webkit-transform: translateY(0);
+              transform: translateY(0);
+      opacity: 0;
+    }
   }
   .skills {
     position: absolute;
@@ -399,6 +573,7 @@ body {
   }
   .skills .box h2 {
     color: #fff;
+    font-size: 1.4vw;
   }
   .skills ul {
     width: 42%;
@@ -424,6 +599,7 @@ body {
   }
   .skills ul li h3 {
     color: #fff;
+    font-size: 1.2vw;
   }
   .skills ul li div {
     width: 40%;
@@ -445,6 +621,7 @@ body {
   }
   .skills ul li p {
     color: #fff;
+    font-size: 1vw;
   }
   .skills ul:nth-of-type(3) span:last-child,
   .skills ul:nth-of-type(4) span:last-child {
@@ -496,7 +673,7 @@ body {
   }
   .info .name p {
     margin: 0;
-    font-size: 1.2rem;
+    font-size: 1.2vw;
     text-align: center;
     font-weight: bold;
   }
@@ -509,7 +686,7 @@ body {
     list-style: none;
   }
   .info .contact li strong {
-    font-size: 1.1rem;
+    font-size: 1vw;
     padding-right: 10px;
   }
   .info .edu_career {
@@ -531,12 +708,12 @@ body {
   }
   .info .edu_career table caption {
     text-align: left;
-    font-size: 1.1rem;
+    font-size: 1.1vw;
     font-weight: bold;
-    padding-bottom: 20px;
+    padding-bottom: 4%;
   }
   .info .edu_career table tr td:first-child {
-    padding-right: 10px;
+    padding-right: 10%;
   }
   .info .edu_career table:first-child {
     width: 46%;
@@ -555,255 +732,9 @@ body {
   }
   .info .experience caption {
     text-align: left;
-    font-size: 1.1rem;
+    font-size: 1.1vw;
     font-weight: bold;
-    padding-bottom: 20px;
-  }
-  .info .experience tr td:first-child {
-    padding-right: 10px;
-  }
-}
-
-@media (max-width: 1024px) {
-  .contents {
-    width: 50%;
-    height: 1500px;
-    position: absolute;
-    top: 0;
-    right: 0;
-    background: #1b1b1b;
-    z-index: 1;
-  }
-  .content {
-    width: 100%;
-    height: 100%;
-  }
-  .content h1 {
-    position: absolute;
-    left: 5%;
-    color: #fff;
-    font-size: 2rem;
-    margin: 0;
-    opacity: 0;
-    -webkit-transition: 1s;
-    transition: 1s;
-  }
-  .content h1:nth-of-type(1) {
-    top: 8%;
-  }
-  .content h1:nth-of-type(2) {
-    top: 12%;
-  }
-  .content h1:nth-of-type(3) {
-    top: 14%;
-  }
-  .content h1.active {
-    opacity: 1;
-  }
-  .content h1:nth-of-type(1).active {
-    top: 4%;
-  }
-  .content h1:nth-of-type(2).active {
-    top: 7%;
-  }
-  .content h1:nth-of-type(3).active {
-    top: 10%;
-  }
-  .content article {
-    position: absolute;
-    top: 18%;
-    left: 5%;
-    opacity: 0;
-    -webkit-transition: 1s;
-    transition: 1s;
-  }
-  .content article p {
-    width: 90%;
-    color: #fff;
-    font-size: 1rem;
-  }
-  .skills {
-    position: absolute;
-    top: 44%;
-    left: 0;
-    width: 100%;
-    opacity: 0;
-    -webkit-transition: 1s;
-    transition: 1s;
-  }
-  .skills .box {
-    width: 90%;
-    margin: 0 auto;
-  }
-  .skills .box h2 {
-    color: #fff;
-  }
-  .skills ul {
-    width: 100%;
-    padding: 0;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-            justify-content: space-between;
-    -webkit-box-align: start;
-        -ms-flex-align: start;
-            align-items: flex-start;
-  }
-  .skills ul li:first-child {
-    width: 40%;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -ms-flex-pack: distribute;
-        justify-content: space-around;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-  }
-  .skills ul li:last-child {
-    width: 50%;
-    margin: 0 auto;
-  }
-  .skills ul li {
-    list-style: none;
-  }
-  .skills ul li h3 {
-    color: #fff;
-    font-size: 1rem;
-  }
-  .skills ul li div {
-    width: 40%;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-            justify-content: space-between;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-  }
-  .skills ul li span {
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background: #a6937c;
-  }
-  .skills ul li p {
-    color: #fff;
-  }
-  .skills ul:nth-of-type(3) span:last-child,
-  .skills ul:nth-of-type(4) span:last-child {
-    background: #1b1b1b;
-    border: 1px solid #a6937c;
-    width: 7px;
-    height: 7px;
-  }
-  .skills ul:nth-of-type(5) span:nth-of-type(4),
-  .skills ul:nth-of-type(5) span:nth-of-type(5),
-  .skills ul:nth-of-type(6) span:nth-of-type(4),
-  .skills ul:nth-of-type(6) span:nth-of-type(5) {
-    background: #1b1b1b;
-    border: 1px solid #a6937c;
-    width: 7px;
-    height: 7px;
-  }
-  .skills.active {
-    opacity: 1;
-    top: 40%;
-  }
-  .fix {
-    width: 50%;
-    height: 100vh;
-    background: #a6937c;
-    position: fixed;
-    top: 0;
-    top: 0;
-    z-index: 2;
-  }
-  .info {
-    position: absolute;
-    top: 8%;
-    left: 0;
-    padding-top: 0;
-    opacity: 0;
-    -webkit-transition: 2s;
-    transition: 2s;
-  }
-  .info .img-wrap {
-    width: 20%;
-    margin: 0 auto;
-  }
-  .info .img-wrap img {
-    width: 100%;
-    border-radius: 50%;
-    -webkit-box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.6);
-            box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.6);
-  }
-  .info .name {
-    padding-top: 4%;
-  }
-  .info .name p {
-    margin: 0;
-    font-size: 1.1rem;
-    text-align: center;
-    font-weight: bold;
-  }
-  .info .contact {
-    padding-top: 4%;
-    width: 50%;
-    margin: 0 auto;
-  }
-  .info .contact li {
-    list-style: none;
-  }
-  .info .contact li strong {
-    font-size: 1.1rem;
-    padding-right: 10px;
-  }
-  .info .edu_career {
-    padding-top: 10%;
-    width: 90%;
-    margin: 0 auto;
-    display: block;
-  }
-  .info .edu_career table {
-    padding-bottom: 2%;
-  }
-  .info .edu_career table caption {
-    text-align: left;
-    font-size: 1.1rem;
-    font-weight: bold;
-    padding-bottom: 20px;
-  }
-  .info .edu_career table tr td:first-child {
-    padding-right: 10px;
-  }
-  .info .edu_career table:first-child {
-    width: 100%;
-    border-right: none;
-    padding-right: 0;
-  }
-  .info .edu_career table:last-child {
-    width: 100%;
-  }
-  .info .career {
-    margin-top: 6%;
-  }
-  .info .experience {
-    width: 90%;
-    margin: 0 auto;
-    margin-top: 3%;
-    padding-top: 3%;
-    border-top: none;
-  }
-  .info .experience caption {
-    text-align: left;
-    font-size: 1.1rem;
-    font-weight: bold;
-    padding-bottom: 20px;
+    padding-bottom: 8%;
   }
   .info .experience tr td:first-child {
     padding-right: 10px;
